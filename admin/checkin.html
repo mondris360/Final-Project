@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>General Hospital - Admin Portal - Search For Patient</title>
+        <!-- bootstrap cdn -->
+        <link href ="./css/checkin.css" rel ="stylesheet" type ="text/css">
+    </head>
+
+    <body>
+      <div class ="container">
+              <div class ="dashboard">
+                <strong> Admin Panel</strong> <br><br>
+                <a id ="viewpatients" href ="#"><center>View Patients</center></a>
+                <a href ="findpatient.html"><center>Find Patient</center></a>
+                <a href ="checkin.html"><center>Checkin Patient</center></a>
+              </div>
+               
+                       
+              <table>
+
+                    <tr>
+                        <td>SN</td><th>First Name</th> <th> Last Name</th> <th>Gender</th> <th>Phone No</th><th>Doctor Assigned</th> <th>Date</th> <th>Health Challenge</th>
+                    </tr>
+              </table>
+              
+             <div id ="checkin">
+                    <p> Check in a Patient</p>
+                    <strong>Patient Details</strong><br>
+                    <strong>Username:</strong><input id  ="username" type ="text"><br>
+                    <strong>Assign Doctor</strong><select id ="doctorName">
+                        <option>Select Doctor</option>
+                        <option>Dr.Imonitie Martins</option>
+                        <option>Dr.Andrew Williams </option>
+                        <option>Dr.Frank Anderson </option>
+                        <option>Dr.Thomas Uche</option>
+                        <option>Dr.Imonitie Lyndia</option>
+                    </select><br>
+                    <strong>Health Challenge</strong><textarea id="complain" placeholder= "Enter Patient Health Challenge"></textarea><br>
+                    <button id ="submit" type ="button"> Check In</button>&nbsp&nbsp <strong id ="output"></strong>
+                    <br>
+                    <strong><center>List of all checked in Patients</center></strong>
+
+             </div>
+       </div>
+       <script
+       src="https://code.jquery.com/jquery-3.3.1.min.js"
+       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+       crossorigin="anonymous"></script>
+       <script src ="../admin/javascript/checkin.js"></script>
+
+    </body>
+
+</html>

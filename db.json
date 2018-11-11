@@ -1,0 +1,78 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "First Name": "mondris",
+      "Last Name": "dsdds",
+      "Gender": "male",
+      "Phone No": "08106516740",
+      "E-mail": "training@babybliss.com.ng",
+      "State": "Edo",
+      "L.G.A": "asa",
+      "Username": "justmondris",
+      "Password": "1234",
+      "ConfirmPass": "1234",
+      "id": 2
+    },
+    {
+      "First Name": "mondris",
+      "Last Name": "dsdds",
+      "Gender": "male",
+      "Phone No": "08106516740",
+      "E-mail": "training@babybliss.com.ng",
+      "State": "Edo",
+      "L.G.A": "asa",
+      "Username": "justmondris",
+      "Password": "1234",
+      "ConfirmPass": "1234",
+      "id": 3
+    },
+    {
+      "First Name": "Udogwu",
+      "Last Name": "Ijeoma",
+      "Gender": "female",
+      "Phone No": "07065438021",
+      "E-mail": "udogwuijeoma@gmail.com",
+      "State": "Edo",
+      "L.G.A": "Oguta",
+      "Username": "ijeoma",
+      "Password": "12345",
+      "ConfirmPass": "12345",
+      "id": 4
+    }
+  ],
+  "checkin": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "Username": "mondris",
+      "Assigned Doctor": "Dr.Imonitie Martins",
+      "Health Challenge": "i am  very strong",
+      "id": 2
+    },
+    {
+      "Username": "mondris",
+      "Assigned Doctor": "Dr.Imonitie Martins",
+      "Health Challenge": "i am  very strong",
+      "Date": "0[Sun]/Nov/2018",
+      "id": 3
+    },
+    {
+      "Username": "justmondris",
+      "Assigned Doctor": "Dr.Frank Anderson",
+      "Health Challenge": "supper strong",
+      "Date": "0[Sun]/Nov/2018",
+      "id": 4
+    }
+  ],
+  "admin": {
+    "name": "typicode"
+  }
+}

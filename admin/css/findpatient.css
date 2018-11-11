@@ -1,0 +1,51 @@
+*{  /* reset browse's default value */
+  box-sizing:border-box;
+}
+
+body{
+  background-color:#242F44;
+}
+
+.container{
+  display:grid;
+  grid-template-columns: repeat(8, minmax(50px, 1fr));
+  grid-auto-rows: 100px;
+  grid-template-areas:
+      ". . . s s s . ." /* positioning the top right menu */
+      "d . p p p p p ."
+      "d . p p p p p ."
+      "d . p p p p p ."
+      ". . . . . . . ."
+      
+
+}
+
+
+.dashboard{
+  background-color: #FFFFFF;
+  grid-area: d;
+  border: 1px solid #8C6B48;
+}
+
+a{
+  color:#242F44;
+  font-size:20px;
+  text-decoration:none;
+  margin: 20px;
+}
+
+input{
+  display:inline-block;
+  
+}
+#findpatient{
+  grid-area:s;
+  display:inline-block;
+}
+
+table{
+  grid-area:p;
+  background-color: #FFFFFF;
+  border: 1px solid #8C6B48;
+}
+
