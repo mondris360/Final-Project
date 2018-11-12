@@ -11,7 +11,7 @@ body{
   grid-template-columns: repeat(8, minmax(50px, 1fr));
   grid-auto-rows: 100px;
   grid-template-areas:
-      ". . . . . . . ." /* positioning the top right menu */
+      ". . m m . . . ." /* positioning the top right menu */
       "d . p p p p p ."
       "d . p p p p p ."
       "d . p p p p p ."
@@ -45,4 +45,13 @@ span{
   display:inline;
   margin-left: 10px;
   cursor: pointer;
+}
+
+/* styling the edit modal box */
+
+#modalBox{
+  background-color: gray;
+  grid-area:m;
+  display:block;
+  visibility: hidden;
 }

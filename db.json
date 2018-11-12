@@ -1,11 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
       "First Name": "mondris",
       "Last Name": "dsdds",
       "Gender": "male",
