@@ -30,29 +30,32 @@ $(document).ready(function(){
 					          console.log('edit clicked', value.Username);
 					        })
 
-					$(".delete").click(function(){  
-						deleteRecord(username); // delete record
-					})
+							$row.find(".delete").click(function(){  
+								var username = value.Username;
+								deleteRecord(username); // delete record
+							})
 			
 				})
 			}
 		}) 
 	})
 
-   // function deleteRecord(username){
-   // 		    $.ajax({
-			// url:"http://localhost:3000/users",
-			// type:"DELETE",
-			// data:{
-			// 	Username: "username",
-			// },
-			// dataType:"json",
-			// success: function(data){
-			// 	// alert("Record Deleted Sucessfully")
-			// }
+   function deleteRecord(username){
+   			alert(username);
+    		$.ajax({
+			url:"http://localhost:3000/users/",
+			type:"DELETE",
+			data:{
+				"Username": username
+			     },
+			dataType:"json",
+			ContentType: "application/json",
+			success: function(data){
+				alert("Record Deleted Sucessfully")
+			}
 
-   // 		})
-
+   		})
+    }
    // 		$.ajax({
 			// url:"http://localhost:3000/checkin",
 			// type:"DELETE",
