@@ -8,21 +8,21 @@
 
     <body>
       <div class ="container">
-              <div class ="dashboard">
+                <div class ="dashboard">
                 <strong> Admin Panel</strong> <br><br>
                 <a id ="viewpatients" href ="#"><center>View Patients</center></a>
                 <a href ="findpatient.html"><center>Find Patient</center></a>
                 <a href ="checkin.html"><center>Checkin Patient</center></a>
               </div>
-              <table>
+              <table id ="table">
                     <tr>
                         <th>User ID</th> <th>Username</th> <th>First Name</th> <th> Last Name</th>
                         <th>Gender</th> <th>Phone No</th> <th> E-Mail</th><th>L.G.A</th> <th>State Of Origin</th>
                     </tr>
               </table>
               
-              <div id ="modalBox">
-                      <center>EDIT PATIENT DETAILS</center>
+        <div id ="modalBox">
+             <center>EDIT PATIENT DETAILS</center>
              <strong> Personal Details </strong><br>
              <form name ="myform">
               <section class = "personalDetails">
@@ -51,8 +51,7 @@
               <button id ="submit" type ="button"> Submit</button>
             </section>
           </form>
-          </div>
-    </div>
+        </div>
        <script
        src="https://code.jquery.com/jquery-3.3.1.min.js"
        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

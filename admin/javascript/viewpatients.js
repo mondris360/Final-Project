@@ -22,13 +22,15 @@ $(document).ready(function(){
 								<td>${value['E-mail']}</td>
 								<td>${value['L.G.A']}</td>
 							 	<td>${value.State}</td>
-							 	<td>${value.Password}</td>
+							 	 ${value.Password}
+							 	 ${value.ConfirmPass}
 								<td><span class="edit" value="${value.Username}">&#x270e;</span></td>
 								<td><span class="delete" value="${value.Username}">&#x274c;</span></td>
 							</tr>`);
 
+
 					        $("table").append($row);
-					        console.log(value.password)
+					        console.log(value.Password)
 					        $row.find('.edit').click(function() {
 					        	var firstName = value['First Name'];
 								var lastName = value['Last Name'];
@@ -38,16 +40,16 @@ $(document).ready(function(){
 								var state = value.State;
 								var lga = value['L.G.A'];
 								var username = value.Username;
-								var password = value.pass;
-
-					            showModalBox(firstName,lastName,gender,phoneNo,email,lga,state,username,password);
+								var password = value.Password;
+								var confirmPassword =  value.ConfirmPass;
+									// display modal box
+					          showModalBox(firstName,lastName,gender,phoneNo,email,lga,state,username,password,confirmPassword);
 					           
 					        })
 
 							$row.find(".delete").click(function(){  
-								
-								
-								deleteRecord(firstName,lastName,gender,phoneNo,email,lga,state,username); // delete record
+										
+							deleteRecord(firstName,lastName,gender,phoneNo,email,lga,state,username); // delete record
 							})
 			
 				})
@@ -86,9 +88,10 @@ $(document).ready(function(){
 
    // display the modal box
 
-   function showModalBox(firstName,lastName,gender,phoneNo,email,lga,state,username, password){
-   	console.log(firstName,lastName,gender,phoneNo,email,lga,state,username, password)
-   	 var modalBox = document.getElementById("modalBox")
+   function showModalBox(firstName,lastName,gender,phoneNo,email,lga,state,username, password, confirmPassword){
+   	console.log(firstName,lastName,gender,phoneNo,email,lga,state,username, password, confirmPassword)
+   	var modalBox = document.getElementById("modalBox");
+   	var table = document.getElementById("table");
    	 $("#Fname").val(firstName);
    	 $("#Lname").val(lastName);
    	 $("#sex").val(gender);
@@ -98,7 +101,9 @@ $(document).ready(function(){
    	 $("#lga").val(lga);
    	 $("#username").html(username);
    	 $("#password").val(password);
+   	 $("#confirmPass").val(confirmPassword);
    	 modalBox.style.visibility = "visible"
+   	 table.style.visibility = "hidden" // hide the table
 
    
    }
