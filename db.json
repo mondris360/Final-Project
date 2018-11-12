@@ -181,7 +181,5 @@
       "id": 4
     }
   ],
-  "admin": {
-    "name": "typicode"
-  }
+  "admin": [{ "id": 1, "Username": "admin", "Password": "master" }]
 }
