@@ -30,8 +30,7 @@ $(document).ready(function(){
 
 
 					        $("table").append($row);
-					        console.log(value.Password)
-					        $row.find('.edit').click(function() {
+					            $row.find('.edit').click(function() {
 					        	var firstName = value['First Name'];
 								var lastName = value['Last Name'];
 								var gender = value.Gender;
@@ -51,6 +50,8 @@ $(document).ready(function(){
 										
 							deleteRecord(firstName,lastName,gender,phoneNo,email,lga,state,username); // delete record
 							})
+							//update button click event
+							
 			
 				})
 			}
@@ -70,45 +71,123 @@ $(document).ready(function(){
 
    		})
     }
-   // 		$.ajax({
-			// url:"http://localhost:3000/checkin",
-			// type:"DELETE",
-			// data:{
-			// 	Username: "username",
-			// }
-			// dataType:"json",
-			// success: function(data){
-			// 	alert("Record Deleted Sucessfully")
-			// });
-
-   //      });
-
-   
-   //  }
-
+  
    // display the modal box
 
    function showModalBox(firstName,lastName,gender,phoneNo,email,lga,state,username, password, confirmPassword){
-   	console.log(firstName,lastName,gender,phoneNo,email,lga,state,username, password, confirmPassword)
-   	var modalBox = document.getElementById("modalBox");
+    console.log(firstName,lastName,gender,phoneNo,email,lga,state,username, password, confirmPassword)
+    console.log("username:",username);
+    var modalBox = document.getElementById("modalBox");
    	var table = document.getElementById("table");
-   	 $("#Fname").val(firstName);
-   	 $("#Lname").val(lastName);
-   	 $("#sex").val(gender);
-   	 $("#phoneNo").val(phoneNo);
-   	 $("#email").val(email);
-   	 $("#state").val(state);
-   	 $("#lga").val(lga);
-   	 $("#username").html(username);
-   	 $("#password").val(password);
-   	 $("#confirmPass").val(confirmPassword);
+   	 $("#FnameVal").val(firstName);
+   	 $("#LnameVal").val(lastName);
+   	 $("#sexVal").val(gender);
+   	 $("#phoneNoVal").val(phoneNo);
+   	 $("#emailVal").val(email);
+   	 $("#stateVal").val(state);
+   	 $("#lgaVal").val(lga);
+   	 $("#usernameVal").html(username);
+   	 $("#passwordVal").val(password);
+   	 $("#confirmPassVal").val(confirmPassword);
    	 modalBox.style.visibility = "visible"
    	 table.style.visibility = "hidden" // hide the table
-
+   	 
+   	 $("#update").click(function(){
+		validate(firstName, lastName, gender, phoneNo, email, state, lga, username, password,confirmPassword);
+		
+		})
    
    }
+// validate the data
+function validate(){
+	//grab values from the update form i.e incase there are some changes
+	 var firstName = $("#FnameVal").val();
+	 var lastName = $("#LnameVal").val();
+	 var gender = $("#sexVal").val();
+	 var phoneNo = $("#phoneNoVal").val();
+	 var email = $("#emailVal").val(); 
+	 var state = $("#stateVal").val();
+	 var lga =  $("#lgaVal").val();
+	 var username = $("usernameVal").text();
+	 var password = $("#passwordVal").val();
+	 var confirmPassword = $("#confirmPassVal").val();
+	console.log("hello", firstName,lastName, gender, phoneNo, email, state, lga, username,password, confirmPassword );
+  if(firstName ===""){
+       alert("Invalid First Name");
+       FnameVal.focus();
+       return false
+     }
+     if(lastName ===""){
+       alert("Invalid  Last Name");
+       LnameVal.focus();
+       return false
+     }
+
+     if(gender === ""){
+       alert("Invalid Gender");
+       sexVal.focus();
+       return false
+     }
+     if(phoneNo === "" || phoneNo.length <11){
+       alert("Invalid Phone No");
+       phoneNoVal.focus();
+       return false
+     }
+     if(email === ""){
+       alert("Invalid Email");
+       emailVal.focus();
+       return false
+     }
+
+     if(state === "Select State"){
+       alert("Invalid State");
+       stateVal.focus();
+       return false
+     }
+     if(lga === ""){
+       alert("Invalid L.G.A")
+       lgaVal.focus();
+       return false
+     }
+     if(password == "" || password < 5){
+       alert("Invalid Password");
+       passwordVal.focus();
+       return false
+     }
+     if(confirmPassword != password){
+       alert("Confirm Pass must Match Password")
+       confirmPassVal.focus();
+       return false
+    }
+    insertData(firstName, lastName, gender, phoneNo, email, state, lga, username, password,confirmPassword)
+    //insert the data to the database
+    
+}   
 
 
+  // insert the data into Json server
+    function insertData(firstName, lastName, gender, phoneNo, email, state, lga, username, password){
+    	console.log("i am here", username)
+       $.ajax({
+            url:`http://localhost:3000/users? ${username}`,
+            type:"PUT",
+            data:{
+              "First Name" : firstName,
+              "Last Name" : lastName,
+              "Gender" : gender,
+              "Phone No" : phoneNo,
+              "E-mail" : email,
+              "State" : state,
+              "L.G.A" : lga,
+              "Username":username,
+              "Password" : password,
+              },
+            success: function(result){
+              alert("Record Updated Sucessfully");
+            }
+        });
+
+  }
 
 
 	
