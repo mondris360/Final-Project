@@ -166,10 +166,10 @@ function validate(){
 
 
   // insert the data into Json server
-    function insertData(firstName, lastName, gender, phoneNo, email, state, lga, username, password){
+    function insertData(firstName, lastName, gender, phoneNo, email, state, lga, username, password,confirmPassword){
     	console.log("i am here", username)
        $.ajax({
-            url:`http://localhost:3000/users? ${username}`,
+            url:`http://localhost:3000/users?email=${email}`,
             type:"PUT",
             data:{
               "First Name" : firstName,
