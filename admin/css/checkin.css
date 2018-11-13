@@ -14,7 +14,7 @@ body{
       ". . . . . . . ." /* positioning the top right menu */
       "d . c c c c . ."
       "d . c c c c . ."
-      "d . p p p p p ."
+      "d . . . . . . ."
       ". . p p p p p ."
       ". . p p p p p ."
       
@@ -44,6 +44,7 @@ input{
 #checkin{
 grid-area:c;
 background-color:#FFFFFF;
+
 
 }
 

@@ -30,9 +30,9 @@ $(document).ready(function(){
 
 
 					        $("table").append($row);
-					            $row.find('.edit').click(function() {
-					            var id  = value.id
-					        	var firstName = value['First Name'];
+					     $row.find('.edit').click(function() {
+					      var id  = value.id
+					      var firstName = value['First Name'];
 								var lastName = value['Last Name'];
 								var gender = value.Gender;
 								var phoneNo = value["Phone No"];
@@ -171,7 +171,6 @@ function validate(id){
 
   // insert the data into Json server
     function insertData(id,firstName, lastName, gender, phoneNo, email, state, lga, username, password,confirmPassword){
-    	console.log("i am here", username)
        $.ajax({
             url:`http://localhost:3000/users/${id}`,
             type:"PUT",

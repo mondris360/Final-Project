@@ -12,9 +12,7 @@ $(document).ready(function(){
     var confirmPassVal = $("#confirmPass").val();
          /* validate data */
     validate(firstName, lastName, gender, phone, emailVal, stateVal, lgaVal, usernameVal, passwordVal, confirmPassVal);
-    // save the data to the database
-    insertData(firstName, lastName, gender, phone, emailVal, stateVal, lgaVal, usernameVal, passwordVal);
-
+     
 function validate(firstName, lastName, gender, phone, emailVal, stateVal, lgaVal, usernameVal, passwordVal,confirmPassVal){
   if(firstName ===""){
        alert("Invalid First Name");
@@ -67,7 +65,11 @@ function validate(firstName, lastName, gender, phone, emailVal, stateVal, lgaVal
        alert("Confirm Pass must Match Password")
        confirmPass.focus();
        return false
-}    }
+      }    
+      else{
+        insertData(firstName, lastName, gender, phone, emailVal, stateVal, lgaVal, usernameVal, passwordVal);
+      }
+}
 
 
   // insert the data into Json server
@@ -88,7 +90,8 @@ function validate(firstName, lastName, gender, phone, emailVal, stateVal, lgaVal
               "ConfirmPass" : confirmPassVal
               },
             success: function(result){
-              console.log(result)
+              alert("Record Added Successfully")
+              window.location.href ="./index.html"
             }
         });
 
