@@ -31,6 +31,7 @@ $(document).ready(function(){
 
 					        $("table").append($row);
 					            $row.find('.edit').click(function() {
+					            var id  = value.id
 					        	var firstName = value['First Name'];
 								var lastName = value['Last Name'];
 								var gender = value.Gender;
@@ -42,15 +43,16 @@ $(document).ready(function(){
 								var password = value.Password;
 								var confirmPassword =  value.ConfirmPass;
 									// display modal box
-					          showModalBox(firstName,lastName,gender,phoneNo,email,lga,state,username,password,confirmPassword);
+					          showModalBox(id, firstName,lastName,gender,phoneNo,email,lga,state,username,password,confirmPassword);
 					           
 					        })
 
 							$row.find(".delete").click(function(){  
-										
-							deleteRecord(firstName,lastName,gender,phoneNo,email,lga,state,username); // delete record
+						    var id = value.id;
+						    console.log(id);
+							deleteRecord(id); // delete record
 							})
-							//update button click event
+
 							
 			
 				})
@@ -58,15 +60,16 @@ $(document).ready(function(){
 		}) 
 	})
 
-   function deleteRecord(username){
-   			alert(username);
-    		$.ajax({
-			url:`http://localhost:3000/users?Username=${username}`,
+   function deleteRecord(id){
+   			$.ajax({
+			url:`http://localhost:3000/users/${id}`,
 			type:"DELETE",
 			ContentType: "application/json",
 			success: function(data){
 				alert("Record Deleted Sucessfully")
 				console.log(data)
+				// refresh the page
+				window.location.href= "./viewpatients.html"
 			}
 
    		})
@@ -74,11 +77,12 @@ $(document).ready(function(){
   
    // display the modal box
 
-   function showModalBox(firstName,lastName,gender,phoneNo,email,lga,state,username, password, confirmPassword){
+   function showModalBox(id, firstName,lastName,gender,phoneNo,email,lga,state,username, password, confirmPassword){
     console.log(firstName,lastName,gender,phoneNo,email,lga,state,username, password, confirmPassword)
     console.log("username:",username);
     var modalBox = document.getElementById("modalBox");
    	var table = document.getElementById("table");
+   	 $("#FnameVal").val(firstName);
    	 $("#FnameVal").val(firstName);
    	 $("#LnameVal").val(lastName);
    	 $("#sexVal").val(gender);
@@ -93,13 +97,13 @@ $(document).ready(function(){
    	 table.style.visibility = "hidden" // hide the table
    	 
    	 $("#update").click(function(){
-		validate(firstName, lastName, gender, phoneNo, email, state, lga, username, password,confirmPassword);
+		validate(id,firstName, lastName, gender, phoneNo, email, state, lga, username, password,confirmPassword);
 		
 		})
    
    }
 // validate the data
-function validate(){
+function validate(id){
 	//grab values from the update form i.e incase there are some changes
 	 var firstName = $("#FnameVal").val();
 	 var lastName = $("#LnameVal").val();
@@ -108,7 +112,7 @@ function validate(){
 	 var email = $("#emailVal").val(); 
 	 var state = $("#stateVal").val();
 	 var lga =  $("#lgaVal").val();
-	 var username = $("usernameVal").text();
+	 var username = $("#usernameVal").html();
 	 var password = $("#passwordVal").val();
 	 var confirmPassword = $("#confirmPassVal").val();
 	console.log("hello", firstName,lastName, gender, phoneNo, email, state, lga, username,password, confirmPassword );
@@ -159,17 +163,17 @@ function validate(){
        confirmPassVal.focus();
        return false
     }
-    insertData(firstName, lastName, gender, phoneNo, email, state, lga, username, password,confirmPassword)
+    insertData(id, firstName, lastName, gender, phoneNo, email, state, lga, username, password,confirmPassword)
     //insert the data to the database
     
 }   
 
 
   // insert the data into Json server
-    function insertData(firstName, lastName, gender, phoneNo, email, state, lga, username, password,confirmPassword){
+    function insertData(id,firstName, lastName, gender, phoneNo, email, state, lga, username, password,confirmPassword){
     	console.log("i am here", username)
        $.ajax({
-            url:`http://localhost:3000/users?email=${email}`,
+            url:`http://localhost:3000/users/${id}`,
             type:"PUT",
             data:{
               "First Name" : firstName,

@@ -1,29 +1,15 @@
 {
   "users": [
     {
-      "First Name": "mondris",
-      "Last Name": "dsdds",
+      "First Name": "Barca",
+      "Last Name": "Barca",
       "Gender": "male",
       "Phone No": "08106516740",
       "E-mail": "training@babybliss.com.ng",
-      "State": "Edo",
-      "L.G.A": "asa",
-      "Username": "justmondris",
+      "State": "Abuja",
+      "L.G.A": "Etsako West",
+      "Username": "",
       "Password": "1234",
-      "ConfirmPass": "1234",
-      "id": 2
-    },
-    {
-      "First Name": "mondris",
-      "Last Name": "dsdds",
-      "Gender": "male",
-      "Phone No": "08106516740",
-      "E-mail": "training@babybliss.com.ng",
-      "State": "Edo",
-      "L.G.A": "asa",
-      "Username": "justmondris",
-      "Password": "1234",
-      "ConfirmPass": "1234",
       "id": 3
     },
     {
@@ -34,46 +20,20 @@
       "E-mail": "udogwuijeoma@gmail.com",
       "State": "Edo",
       "L.G.A": "Oguta",
-      "Username": "ijeoma",
+      "Username": "",
       "Password": "12345",
-      "ConfirmPass": "12345",
       "id": 4
     },
     {
       "First Name": "OKADA",
       "Last Name": "BUSA",
+      "Gender": "male",
       "Phone No": "08106516740",
       "E-mail": "busa@decagon.com.ng",
       "State": "Delta",
       "L.G.A": "okuda",
-      "Username": "smith",
       "Password": "okada",
-      "ConfirmPass": "",
-      "id": 5
-    },
-    {
-      "First Name": "OKADA",
-      "Last Name": "BUSA",
-      "Phone No": "08106516740",
-      "E-mail": "busa@decagon.com.ng",
-      "State": "Delta",
-      "L.G.A": "okuda",
-      "Username": "smith",
-      "Password": "okada",
-      "ConfirmPass": "okada",
       "id": 6
-    },
-    {
-      "First Name": "OKADA",
-      "Last Name": "BUSA",
-      "Phone No": "08106516740",
-      "E-mail": "busa@decagon.com.ng",
-      "State": "Delta",
-      "L.G.A": "okuda",
-      "Username": "smith",
-      "Password": "",
-      "ConfirmPass": "",
-      "id": 7
     },
     {
       "First Name": "mondris",
@@ -81,11 +41,10 @@
       "Gender": "male",
       "Phone No": "08106516740",
       "E-mail": "training@babybliss.com.ng",
-      "State": "asa",
+      "State": "",
       "L.G.A": "Edo",
-      "Username": "justmondris",
+      "Username": "",
       "Password": "1234",
-      "ConfirmPass": "1234",
       "id": 8
     },
     {
@@ -94,11 +53,9 @@
       "Gender": "male",
       "Phone No": "08106516740",
       "E-mail": "training@babybliss.com.ng",
-      "State": "asa",
+      "State": "",
       "L.G.A": "Edo",
-      "Username": "justmondris",
       "Password": "1234",
-      "ConfirmPass": "1234",
       "id": 9
     },
     {
@@ -107,11 +64,9 @@
       "Gender": "male",
       "Phone No": "08106516740",
       "E-mail": "training@babybliss.com.ng",
-      "State": "asa",
+      "State": "",
       "L.G.A": "Edo",
-      "Username": "justmondris",
       "Password": "1234",
-      "ConfirmPass": "1234",
       "id": 10
     },
     {
@@ -152,6 +107,18 @@
       "Password": "1234",
       "ConfirmPass": "1234",
       "id": 13
+    },
+    {
+      "First Name": "Barca",
+      "Last Name": "Dosca",
+      "Gender": "male",
+      "Phone No": "081065167401",
+      "E-mail": "okundolor@gmail.com",
+      "State": "Edo",
+      "L.G.A": "ogua",
+      "Username": "isaac",
+      "Password": "master",
+      "id": 14
     }
   ],
   "checkin": [
@@ -181,5 +148,11 @@
       "id": 4
     }
   ],
-  "admin": [{ "id": 1, "Username": "admin", "Password": "master" }]
+  "admin": [
+    {
+      "id": 1,
+      "Username": "admin",
+      "Password": "master"
+    }
+  ]
 }

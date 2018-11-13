@@ -8,18 +8,21 @@ body{
 
 .container{
   display:grid;
-  grid-template-columns: repeat(6, minmax(50px, 1fr));
+  grid-template-columns: repeat(6, minmax(30px, 1fr));
   grid-auto-rows: 100px;
   grid-template-areas:
       ". . . . . sm" /* positioning the top right menu */
       ". mm mm mm mm ."
-      ". . . . . . "
+      ". . rf rf . . "
       ". . rf rf . ."
       ". . rf rf . ."
       ". . rf rf . ."
       ". . rf rf . ."
       ". . rf rf . ."
       ". . rf rf . ."
+      ". . rf rf . ."
+      
+     
 
 }
 /* top right menu styles start here */
@@ -68,6 +71,46 @@ grid-area:mm;
 /* styling the registration form */
 
 .regForm {
+
   grid-area: rf;
    background-color: gray;
+}
+/* styling the sign up form */
+center{
+  color:#8c6b48;
+  background-color:#FFFFFF;
+  font-size:20px;
+  font-family: "Times New Roman", Times, serif;
+  border: 2px solid #8C6B48;
+  padding:20px;
+}
+
+input{
+  width: 400px;
+  margin-left:10px;
+  height: 30px;
+}
+strong{
+  color:#242F44;
+  font-size:20px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+span{
+  color:#242F44;
+  font-size:20px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+select{
+   width: 400px;
+  margin-left:10px;
+  height: 30px;
+}
+#submit{
+  border:2px solid #8C6B48;
+  width:100px;
+  padding:15px;
+  margin-top:10px;
+  margin-left:180px;
 }

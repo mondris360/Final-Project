@@ -26,22 +26,22 @@
               </ul>
           </nav>
           <br>
-          <form c>
+          <form class ="regForm">
              <center>PATIENT REGISTRATION FORM</center>
              <strong> Personal Details </strong><br>
              <form name ="myform">
               <section class = "personalDetails">
-              <em class ="fieldname">First Name</em><input  id="Fname"type ="text" name ="Fname"> <br>
-              <em class ="fieldname">Last Name</en><input id ="Lname" type ="text"><br>
-              <em class ="fieldname">Gender</em><select> 
-                  <option>Select Gender</option>
+              <span class ="fieldname">First Name:</span><input  id="Fname"type ="text" name ="Fname"> <br>
+              <span class ="fieldname">Last Name:</span><input id ="Lname" type ="text"><br>
+              <span class ="fieldname">Gender:</span><select id="#sex" > 
+                  <option>Select Gender:</option>
                   <option>Male</option>
                   <option>Female</option>
               </select><br>
-              <em class ="fieldname">Phone No</em><input  id ="phoneNo" type ="text"></input> <br>
-              <em class ="fieldname">E-mail</em><input  id ="email"type ="text"></input> <br>
-              <em class ="fieldname">State Of Origin</em><select id ="state">
-                  <option> Select State</option>
+              <span class ="fieldname">Phone No:</span><input  id ="phoneNo" type ="text"></input> <br>
+              <span class ="fieldname">E-mail:</span><input  id ="email"type ="text"></input> <br>
+              <span class ="fieldname">State Of Origin:</span><select id ="state">
+                  <option> Select State:</option>
                   <option> Edo</option>
                   <option> Delta</option>
                   <option> Imo</option>
@@ -49,14 +49,13 @@
                   <option> Kano</option>
                   <option> Abuja</option>
               </select> <br>
-              <em class ="fieldname">L.G.A</em><input id ="lga" type ="text"></input> <br>
+              <span class ="fieldname">L.G.A:</span><input id ="lga" type ="text"></input> <br>
             </section> <br>
-              <section class = "accountDetails">
-              <stong> Account Details </strong> <br>
-              <em class ="username">Username</em><input id = "username" type ="text" name ="userName"></input> <br>
-              <em class ="password">password</em><input id ="password" type ="password" name ="password"></input> <br>
-              <em class ="confirm Pass">Confirm Pass</em><input id ="confirmPass" type ="password" name ="confPass"></input> <br>
-              <p id="output">result</p>
+              <section>
+              <strong> Account Details </strong> <br>
+              <span>Username:</span><input id = "username" type ="text" name ="userName"></input> <br>
+              <span>password:</span><input id ="password" type ="password" name ="password"></input> <br>
+              <span>Confirm Pass:</span><input id ="confirmPass" type ="password" name ="confPass"></input> <br>
               <button id ="submit" type ="button"> Submit</button>
             </section>
           </form>
@@ -65,7 +64,7 @@
        src="https://code.jquery.com/jquery-3.3.1.min.js"
        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
        crossorigin="anonymous"></script>
-     
+
        <script src ="./javascript/register.js"></script>
     </body>
 
