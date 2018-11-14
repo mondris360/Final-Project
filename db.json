@@ -1,227 +1,96 @@
 {
-  "users": [
+  "patients": [
     {
-      "First Name": "mondris",
-      "Last Name": "dsdds",
-      "Gender": "male",
+      "First Name": "Okundolor",
+      "Last Name": "Mondris",
+      "Gender": "Male",
       "Phone No": "08106516740",
-      "E-mail": "training@babybliss.com.ng",
-      "State": "",
-      "L.G.A": "Edo",
-      "Password": "1234",
-      "id": 10
+      "E-mail": "justmondris@gmail.com",
+      "Address": "No 4 A, ICE ROAD",
+      "State": "Edo",
+      "L.G.A": "",
+      "id": 1
     },
     {
-      "First Name": "mondris",
-      "Last Name": "dsdds",
-      "Gender": "male",
+      "First Name": "Okundolor",
+      "Last Name": "Mondris",
+      "Gender": "Female",
       "Phone No": "08106516740",
       "E-mail": "training@babybliss.com.ng",
-      "State": "asa",
-      "L.G.A": "Edo",
-      "Username": "justmondris",
-      "Password": "1234",
-      "ConfirmPass": "1234",
-      "id": 11
+      "Address": "NO 45 ICE ROAD, AUCHI",
+      "State": "Imo",
+      "L.G.A": "",
+      "id": 2
     },
     {
-      "First Name": "Udogwu",
-      "Last Name": "Ijeoma",
-      "Gender": "female",
-      "Phone No": "07065438021",
+      "First Name": "Okundolor",
+      "Last Name": "Mondris",
+      "Gender": "Female",
+      "Phone No": "08106516740",
+      "E-mail": "training@babybliss.com.ng",
+      "Address": "NO 45 ICE ROAD, AUCHI",
+      "State": "Imo",
+      "L.G.A": "",
+      "id": 3
+    },
+    {
+      "First Name": "Okundolor",
+      "Last Name": "Mondris",
+      "Gender": "Female",
+      "Phone No": "08106516740",
+      "E-mail": "training@babybliss.com.ng",
+      "Address": "NO 45 ICE ROAD, AUCHI",
+      "State": "Imo",
+      "L.G.A": "",
+      "id": 4
+    },
+    {
+      "First Name": "Okundolor",
+      "Last Name": "Mondris",
+      "Gender": "Male",
+      "Phone No": "08106516740",
+      "E-mail": "justmondris@gmail.com",
+      "Address": "No 4 A, ICE ROAD",
+      "State": "Edo",
+      "L.G.A": "Etsako West",
+      "id": 5
+    },
+    {
+      "First Name": "Adam",
+      "Last Name": "Smith",
+      "Gender": "Female",
+      "Phone No": "070651438021",
       "E-mail": "udogwuijeoma@gmail.com",
-      "State": "Oguta",
-      "L.G.A": "Edo",
-      "Username": "ijeoma",
-      "Password": "12345",
-      "ConfirmPass": "12345",
-      "id": 12
+      "Address": "no 4a I.C.E road, benin city",
+      "State": "Imo",
+      "L.G.A": "Oguta",
+      "id": 6
     }
   ],
   "checkin": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "Patient PhoneNo": "+234512349543",
+      "Doctor PhoneNo": "08106516740",
+      "Health Challenge": "stomach Ache",
+      "Date": "3[Wed]/Nov/2018",
+      "Status": "Waiting",
+      "id": 1
     },
     {
-      "Username": "mondris",
-      "Assigned Doctor": "Dr.Imonitie Martins",
-      "Health Challenge": "i am  very strong",
+      "Patient PhoneNo": "+234512349543",
+      "Doctor PhoneNo": "08106516740",
+      "Health Challenge": "stomach Ache",
+      "Date": "3[Wed]/Nov/2018",
+      "Status": "Waiting",
       "id": 2
     },
     {
-      "Username": "mondris",
-      "Assigned Doctor": "Dr.Imonitie Martins",
-      "Health Challenge": "i am  very strong",
-      "Date": "0[Sun]/Nov/2018",
+      "Patient PhoneNo": "070651438021",
+      "Doctor PhoneNo": "28222982948248",
+      "Health Challenge": "Too Much Money",
+      "Date": "3[Wed]/Nov/2018",
+      "Status": "Waiting",
       "id": 3
-    },
-    {
-      "Username": "justmondris",
-      "Assigned Doctor": "Dr.Frank Anderson",
-      "Health Challenge": "supper strong",
-      "Date": "0[Sun]/Nov/2018",
-      "id": 4
-    },
-    {
-      "Username": "",
-      "Assigned Doctor": "Select Doctor",
-      "Health Challenge": "",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 5
-    },
-    {
-      "Username": "okundolor",
-      "Assigned Doctor": "Select Doctor",
-      "Health Challenge": "",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 6
-    },
-    {
-      "Username": "okundolor",
-      "Assigned Doctor": "Select Doctor",
-      "Health Challenge": "",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 7
-    },
-    {
-      "Username": "okundolor",
-      "Assigned Doctor": "Select Doctor",
-      "Health Challenge": "",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 8
-    },
-    {
-      "Username": "okundolor",
-      "Assigned Doctor": "Select Doctor",
-      "Health Challenge": "",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 9
-    },
-    {
-      "Username": "okundolor",
-      "Assigned Doctor": "Select Doctor",
-      "Health Challenge": "",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 10
-    },
-    {
-      "Username": "okundolor",
-      "Assigned Doctor": "Select Doctor",
-      "Health Challenge": "",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 11
-    },
-    {
-      "Username": "judesmsith",
-      "First Name": "Okundolor",
-      "Last Name": "Mondris",
-      "Phone No": "08106516740",
-      "Assigned Doctor": "Dr.Imonitie Lyndia",
-      "Health Challenge": "Headache",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 12
-    },
-    {
-      "Username": "judesmsith",
-      "First Name": "Okundolor",
-      "Last Name": "",
-      "Phone No": "08106516740",
-      "Assigned Doctor": "Dr.Imonitie Lyndia",
-      "Health Challenge": "Headache",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 13
-    },
-    {
-      "Username": "Dominic",
-      "First Name": "Odogwu",
-      "Last Name": "Mondris",
-      "Phone No": "08106516740",
-      "Assigned Doctor": "Dr.Imonitie Lyndia",
-      "Health Challenge": "Headache",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 14
-    },
-    {
-      "Username": "Dominic",
-      "First Name": "Odogwu",
-      "Last Name": "Mondris",
-      "Phone No": "08106516740",
-      "Assigned Doctor": "Dr.Imonitie Lyndia",
-      "Health Challenge": "Headache and cough",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 15
-    },
-    {
-      "Username": "",
-      "First Name": "",
-      "Last Name": "",
-      "Phone No": "",
-      "Assigned Doctor": "Select Doctor",
-      "Health Challenge": "",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 16
-    },
-    {
-      "Username": "",
-      "First Name": "",
-      "Last Name": "",
-      "Phone No": "",
-      "Assigned Doctor": "Select Doctor",
-      "Health Challenge": "",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 17
-    },
-    {
-      "Username": "",
-      "First Name": "",
-      "Last Name": "",
-      "Phone No": "",
-      "Assigned Doctor": "Select Doctor",
-      "Health Challenge": "",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 18
-    },
-    {
-      "Username": "",
-      "First Name": "",
-      "Last Name": "",
-      "Phone No": "",
-      "Assigned Doctor": "Select Doctor",
-      "Health Challenge": "",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 19
-    },
-    {
-      "Username": "",
-      "First Name": "",
-      "Last Name": "",
-      "Phone No": "",
-      "Assigned Doctor": "Select Doctor",
-      "Health Challenge": "",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 20
-    },
-    {
-      "Username": "",
-      "First Name": "",
-      "Last Name": "",
-      "Phone No": "",
-      "Assigned Doctor": "Select Doctor",
-      "Health Challenge": "",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 21
-    },
-    {
-      "Username": "mondris",
-      "First Name": "okundolor",
-      "Last Name": "Mondris",
-      "Phone No": "08106516740",
-      "Assigned Doctor": "Dr.Andrew Williams",
-      "Health Challenge": "stress and fatigue",
-      "Date": "2[Tue]/Nov/2018",
-      "id": 22
     }
   ],
   "admin": [
@@ -234,6 +103,11 @@
       "Username": "justmondris",
       "Password": "master",
       "id": 2
+    },
+    {
+      "Username": "adams",
+      "Password": "master",
+      "id": 3
     }
   ],
   "doctors": [
@@ -346,6 +220,16 @@
       "username": "justmondris",
       "password": "master",
       "id": 11
+    },
+    {
+      "First Name": "Sir.Jackson",
+      "Last Name": "Adams",
+      "gender": "Female",
+      "Phone No": "28222982948248",
+      "E-mail": "smith@gmail.como",
+      "username": "adams",
+      "password": "master",
+      "id": 12
     }
   ]
 }

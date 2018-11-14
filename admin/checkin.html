@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>General Hospital - Admin Portal - Check in Patient</title>
+        <title>General Hospital - Admin Portal - Check in a Patient</title>
         <!-- bootstrap cdn -->
         <link href ="./css/checkin.css" rel ="stylesheet" type ="text/css">
     </head>
@@ -19,24 +19,21 @@
               <table>
 
                     <tr>
-                        <td>SN</td><th>First Name</th> <th> Last Name</th> 
+                        <td>SN</td><th>Patient Name</th> 
                         <th>Phone No</th><th>Doctor Assigned</th>
                          <th>Date</th> <th>Health Challenge</th><th>Status</th>
                     </tr>
               </table>
               
              <div id ="checkin">
-                    <p> Check in a Patient</p>
+                    <p> Check in a Returning Patient</p>
                     <strong>Patient Details</strong><br>
-                    <strong>Username:</strong><input id  ="username" type ="text"><br>
-                    <strong>First Name:</strong><input id  ="Fname" type ="text"><br>
-                    <strong>Last Name:</strong><input id  ="Lname" type ="text"><br>
-                     <strong>Phon No:</strong><input id  ="phoneNo" type ="text"><br>
+                    <strong>PhoneNo:</strong><input id  ="phoneNo" type ="text"><br>
+                     <strong>Health Challenge</strong><textarea id="complain" placeholder= "Enter Patient Health Challenge"></textarea><br>
                     <strong>Assign Doctor</strong>
                         <select id ="doctorName">
                             <option>Select Doctor</option>
                         </select><br>
-                    <strong>Health Challenge</strong><textarea id="complain" placeholder= "Enter Patient Health Challenge"></textarea><br>
                     <button id ="submit" type ="button"> Check In</button>&nbsp&nbsp <strong id ="output"></strong>
                     <button id ="viewCheckin" type ="button">View All Checkin</button>&nbsp&nbsp <strong id ="output"></strong>
                     <br>
