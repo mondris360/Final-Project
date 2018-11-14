@@ -229,13 +229,123 @@
       "id": 1,
       "Username": "admin",
       "Password": "master"
+    },
+    {
+      "Username": "justmondris",
+      "Password": "master",
+      "id": 2
     }
   ],
   "doctors": [
     {
-      "userid": "123",
-      "First Name": "Imonitie",
-      "Last Name": "Martins"
+      "userDetails[First Name]": "Dr.Martins",
+      "userDetails[Last Name]": "Imonitie",
+      "userDetails[gender]": "",
+      "userDetails[Phone No]": "08106516740",
+      "userDetails[E-mail]": "justmondris@gmail.com",
+      "userDetails[username]": "justmondris",
+      "userDetails[password]": "master",
+      "id": 1
+    },
+    {
+      "userDetails[First Name]": "Dr.Martins",
+      "userDetails[Last Name]": "Imonitie",
+      "userDetails[gender]": "Male",
+      "userDetails[Phone No]": "08106516740",
+      "userDetails[E-mail]": "justmondris@gmail.com",
+      "userDetails[username]": "justmondris",
+      "userDetails[password]": "MASTER",
+      "id": 2
+    },
+    {
+      "First Name": "Dr.Martins",
+      "Last Name": "Imonitie",
+      "gender": "Male",
+      "Phone No": "08106516740",
+      "E-mail": "justmondris@gmail.com",
+      "username": "justmondris",
+      "password": "MASTER",
+      "id": 3
+    },
+    {
+      "First Name": "Dr.Martins",
+      "Last Name": "Imonitie",
+      "gender": "Male",
+      "Phone No": "08106516740",
+      "E-mail": "justmondris@gmail.com",
+      "username": "justmondris",
+      "password": "master",
+      "id": 4
+    },
+    {
+      "First Name": "Dr.Martins",
+      "Last Name": "Imonitie",
+      "gender": "Male",
+      "Phone No": "08106516740",
+      "E-mail": "justmondris@gmail.com",
+      "username": "justmondris",
+      "password": "master",
+      "id": 5
+    },
+    {
+      "First Name": "Dr.Martins",
+      "Last Name": "Imonitie",
+      "gender": "Male",
+      "Phone No": "08106516740",
+      "E-mail": "justmondris@gmail.com",
+      "username": "justmondris",
+      "password": "master",
+      "id": 6
+    },
+    {
+      "First Name": "Dr.Martins",
+      "Last Name": "Imonitie",
+      "gender": "Male",
+      "Phone No": "08106516740",
+      "E-mail": "justmondris@gmail.com",
+      "username": "justmondris",
+      "password": "master",
+      "id": 7
+    },
+    {
+      "First Name": "Dr.Martins",
+      "Last Name": "Imonitie",
+      "gender": "Male",
+      "Phone No": "08106516740",
+      "E-mail": "justmondris@gmail.com",
+      "username": "justmondris",
+      "password": "master",
+      "id": 8
+    },
+    {
+      "First Name": "Dr.Martins",
+      "Last Name": "Imonitie",
+      "gender": "Male",
+      "Phone No": "08106516740",
+      "E-mail": "justmondris@gmail.com",
+      "username": "justmondris",
+      "password": "master",
+      "id": 9
+    },
+    {
+      "First Name": "Dr.Martins",
+      "Last Name": "Imonitie",
+      "gender": "Male",
+      "Phone No": "08106516740",
+      "E-mail": "justmondris@gmail.com",
+      "username": "justmondris",
+      "password": "master",
+      "id": 10
+    },
+    {
+      "First Name": "Dr.Martins",
+      "Last Name": "Imonitie",
+      "gender": "Male",
+      "Phone No": "08106516740",
+      "E-mail": "justmondris@gmail.com",
+      "username": "justmondris",
+      "password": "master",
+      "id": 11
     }
   ]
 }
