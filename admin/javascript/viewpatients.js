@@ -2,6 +2,9 @@ $(document).ready(function(){
 	var edit = "edit";
 	var del = "delete";
 	$("#viewpatients").click(function(){ 
+    // var table = document.getElementById('viewpatients') ;
+    // table.style.visibility = "visible";
+    
 		$.ajax({					
 			url:"http://localhost:3000/users",
 			type:"Get",
@@ -48,9 +51,8 @@ $(document).ready(function(){
 					        })
 
 							$row.find(".delete").click(function(){  
-						    var id = value.id;
-						    console.log(id);
-							deleteRecord(id); // delete record
+						    var phoneNo = value.State;
+						  	deleteRecord(id); // delete record
 							})
 
 							
@@ -61,15 +63,15 @@ $(document).ready(function(){
 	})
 
    function deleteRecord(id){
-   			$.ajax({
-			url:`http://localhost:3000/users/${id}`,
+    		$.ajax({
+			url:`http://localhost:3000/users?State=${phoneNo}`,
 			type:"DELETE",
 			ContentType: "application/json",
 			success: function(data){
 				alert("Record Deleted Sucessfully")
-				console.log(data)
+				console.log(phoneNo)
 				// refresh the page
-				window.location.href= "./viewpatients.html"
+				// window.location.href= "./viewpatients.html"
 			}
 
    		})

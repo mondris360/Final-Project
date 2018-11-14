@@ -35,12 +35,26 @@ a{
 }
 
 #table{
+  visibility:visible;
   grid-area:p;
   background-color: #FFFFFF;
   border: 1px solid #8C6B48;
   z-index: 1
+
+}
+th{
+  margin-top:2px;
+  color:#8C6B48;
+  border:2px solid #8C6B48;
 }
 
+td{
+  font-size:16px;
+  color:#C1B6AF;
+  border-bottom:2px solid #8C6B48;
+  background-color:#242F44;
+  height:20px;
+}
 
 span{
   display:inline;
