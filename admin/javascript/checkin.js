@@ -129,22 +129,19 @@ $(document).ready(function() {
   });
  
   function callPatientsTable(checkinData) {
-    var patPhoneNo = checkinData.patPhoneNo; // grab patient phone from local storage
+    var patPhoneNo = checkinData.patPhoneNo; 
     $.ajax({
       url: "http://localhost:3000/patients",
       type: "GET",
       data: patPhoneNo,
       dataType: "json",
-      // contentType: "application/json"
       success: function(data) {
         // iterate over the data using jquery .each method
         $(data).each(function(index, value) {
-          // use each sub object to form a complete row of table data
-          // store the following values in the local storage
-          if (patPhoneNo == value["Phone No"]) {
+            if (patPhoneNo == value["Phone No"]) {
             checkinData.patName =
               value["First Name"] + " " + value["Last Name"];
-            // localStorage.setItem("Patient Name", patientName); //store patient's fullname in local storage
+            
             callDoctorTable(checkinData);
           }
         });
@@ -186,15 +183,15 @@ $(document).ready(function() {
       healthChallenge,
       status
     } = checkinData;
-    console.log(
-      sn,
-      patName,
-      patPhoneNo,
-      docName,
-      date,
-      healthChallenge,
-      status
-    );
+    // console.log(
+    //   sn,
+    //   patName,
+    //   patPhoneNo,
+    //   docName,
+    //   date,
+    //   healthChallenge,
+    //   status
+    // );
     var $row = $(`
         <tr>
         <td>${sn}</td>
