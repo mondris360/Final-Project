@@ -95,7 +95,7 @@ $(document).ready(function() {
           var option = document.createElement("option");
           var docName = value["First Name"] + " " + value["Last Name"];
           var value = value["Phone No"];
-          option.text = docName; // change the option text to doctor's name
+          option.text = docName; // change the option text to the doctor name
           option.value = value; // change the option html value to the doctor's username
           selectBox.add(option);
         });
@@ -105,17 +105,20 @@ $(document).ready(function() {
  
   // display all checked in patients
  
-  $("#viewCheckin").click(function() { // ajax call to the checkin table
+  $("#viewCheckin").click(function() {
     $.ajax({
       url: "http://localhost:3000/checkin",
       type: "GET",
       success: function(data) {
         // iterate over the data using jquery .each method
         $(data).each(function(index, value) {
-          const data = {};    // container to hold all values
+          // use each sub object to form a
+          //complete row of table data // store the following values in the local storage
+          const data = {};
           data.id = value.id;
           data.patPhoneNo = value["Patient PhoneNo"];
           data.healthChallenge = value["Health Challenge"];
+          data.patPhoneNo = value["Patient PhoneNo"];
           data.date = value["Date"];
           data.docPhoneNo = value["Doctor PhoneNo"];
           data.status = value["Status"];
@@ -126,7 +129,7 @@ $(document).ready(function() {
   });
  
   function callPatientsTable(checkinData) {
-    var patPhoneNo = checkinData.patPhoneNo;
+    var patPhoneNo = checkinData.patPhoneNo; 
     $.ajax({
       url: "http://localhost:3000/patients",
       type: "GET",
@@ -136,36 +139,37 @@ $(document).ready(function() {
         // iterate over the data using jquery .each method
         $(data).each(function(index, value) {
             if (patPhoneNo == value["Phone No"]) {
-              checkinData.patName = value["First Name"] + " " + value["Last Name"];
+            checkinData.patName =
+              value["First Name"] + " " + value["Last Name"];
+            
             callDoctorTable(checkinData);
           }
-
         });
       }
     });
   }
  
   function callDoctorTable(checkinData) {
-    var docPhoneNo = checkinData.docPhoneNo; 
-      
-      $.ajax({
-      url: `http://localhost:3000/doctors`,
+    var docPhoneNo = checkinData.docPhoneNo; // grab Doctor's phone from local storage
+    $.ajax({
+      url: "http://localhost:3000/doctors",
       type: "GET",
       data: docPhoneNo,
       dataType: "json",
       // contentType: "application/json"
       success: function(data) {
-               //loop through the  object
+        // iterate over the data using jquery .each method
         $(data).each(function(index, value) {
+          // use each sub object to form a complete row of table data
+          // store the following values in the local storage
           if (value["Phone No"] == docPhoneNo) {
             var docName = value["First Name"] + " " + value["Last Name"];
-            checkinData.docName = docName; //add doctor's name to the obj container
-             appendRow(checkinData); // append data to the table
+            checkinData.docName = docName; //store patient's fullname in local storage
+            appendRow(checkinData); // append data to the table
           }
         });
       }
     });
-                console.log(checkinData, " here");
   }
  
   function appendRow(checkinData) {
@@ -179,6 +183,15 @@ $(document).ready(function() {
       healthChallenge,
       status
     } = checkinData;
+    // console.log(
+    //   sn,
+    //   patName,
+    //   patPhoneNo,
+    //   docName,
+    //   date,
+    //   healthChallenge,
+    //   status
+    // );
 
     var $row = $(`
         <tr>
@@ -194,21 +207,9 @@ $(document).ready(function() {
         </tr>`);
 
      $("table").append($row);
-              $row.find('.edit').click(function() { //function to  extract patient's details from  the selected row
-              var id  = checkinData.id
-              var patFullName = checkinData.patName;
-              var patFirstName = patFullName.split(" ")[1]
-              var patLastName = patFullName.split(" ")[0];
-              var docFullName = checkinData.docName;
-              var docFirstName = docFullName.split(" ")[1]
-              var docLastName = docFullName.split(" ")[0];
-              var patPhoneNo = checkinData.patPhoneNo;
-              var patDate = checkinData.date;
-              var patHealthChallenge = checkinData.healthChallenge;
-              var patStatus = checkinData.status;
-             
-              // showModalBox(id, patFullName, patFirstName, patLastName, docFullName, docFirstName, docLastName, patPhoneNo,
-              //     patHealthChallenge, patStatus, patDate) // the function that will update it
+              $row.find('.edit').click(function() { //function to  extract patient's phone no from selected row
+              var patId  = checkinData.id;
+              updateRecord(patId)
              
               })
 
@@ -234,105 +235,47 @@ $(document).ready(function() {
 
       })
     }
-        
-
-   // function to display edit button  modal box
-  function showModalBox(id, patFirstName, patLastName, patPhoneNo, docFullName,docFirstName,
-                         docLastName, patHealthChallenge, patDate, patStatus){
-    console.log(patHealthChallenge)
-    // loadDoctors() // load doctors name from db
-     var modalBox = document.getElementById("modalBox");
-     var table = document.getElementById("table");
-     $("#patid").val(id);
-     $("#patFirstName").val(patFirstName);
-     $("#patLastName").val(patLastName);
-     $("#patPhoneNo").val(patPhoneNo);
-     $("#docName").val(docFullName);
-     $("#heathChal").val(patHealthChallenge);
-     $("#date").val(patDate);
-     $("#Status").val(patStatus);
-     var docNameSelectBox = document.getElementById("ModalBoxDoctorName"); //add the doctor's name to the selected menu
-     var option = document.createElement("option");
-     option.text = docFullName;
-     option.value = docFullName;
-     docNameSelectBox.add(option);
-     var statusSelectBox = document.getElementById("statusSelectBox"); //add the doctor's name to the selected menu
-     var option = document.createElement("option");
-     option.text = patStatus;
-     option.value = patStatus;
-     statusSelectBox.add(option);
-
-     $("#update").click(function() {
-        validate();
-      });
-  }
-
- function validate(id){ // extract data from the modal box and validate them
-  var userId = $("#patid").val();
-  var patientFName = $("#patFirstName").val();
-  var patientLName = $("#patLastName").val();
-  var patientPhoneNo = $("#patPhoneNo").val();
-  var doctorName = $("#docName").val();
-  var patHealthCha = $("#heathChal").val();
-  var checkinDate = $("#date").val();
-  var checkinStatus = $("#Status").val();
-  console.log(checkinDate)
- 
-  if(patientFName === ""){
-    alert("Invalid Name")
-    patFirstName.focus();
-    return false
-  }
-
-  if(patientLName === ""){
-    alert("Invalid Name")
-    patLastName.focus();
-    return false
-  }
-
-  if(patientPhoneNo.length < 11){
-    alert("Invalid Phone No")
-    patPhoneNo.focus();
-    return false
-  }
-
-  if(patHealthCha === ""){
-    alert("Please Enter Health Challenge")
-    heathChal.focus();
-    return false;
-  };
-
-  if(patHealthCha.length < 11){
-    alert("Your health challenge description is too short")
-    date.focus();
-    return false;
-  };
-
-  if(checkinStatus === "Status"){
-    alert("Please Select Checking Status")
-    Status.focus();
-    return false
-  };
-  // updateRecord(userId, patientFName, patientLName, patientPhoneNo, doctorName, patHealthCha, checkinDate,checkinStatus);
-};
-
-
-  function updateRecord(userId, patientFName, patientLName, 
-                      patientPhoneNo, DoctorName, PatHealthCha){
-     $.ajax({   
-        url: `http://localhost:3000/checkin/3`, // update checkin Table
-        type: "PUT",
-        data: {
-          "Patient PhoneNo":patPhoneNo,
-          "Health Challenge":PatHealthCha,
-          "Date":checkinDate,
-          "Status":checkinStatus
-        },
-        success: function(data) {
-            alert("Record Updated Successfully")
   
-          }
-      });
+
+  //function to update patient's record
+  function updateRecord(patId){
+      $.ajax({
+      url:`http://localhost:3000/checkin?id=${patId}`,
+      type:"DELETE",
+      success: function(data){
+        alert("Record Deleted Successfully")
+        
+      }
+
+    })
   }
+  // function to display edit button  modal box
+  function showModalBox(patPhoneNo, docPhoneNo, docName, healthComp){
+    console.log(patPhoneNo, docPhoneNo, docName, healthComp)
+    console.log("username:",username);
+    var modalBox = document.getElementById("modalBox");
+    var table = document.getElementById("table");
+     $("#FnameVal").val(firstName);
+     $("#FnameVal").val(firstName);
+     $("#LnameVal").val(lastName);
+     $("#sexVal").val(gender);
+     $("#phoneNoVal").val(phoneNo);
+     $("#emailVal").val(email);
+     $("#stateVal").val(state);
+     $("#lgaVal").val(lga);
+     $("#usernameVal").html(username);
+     $("#passwordVal").val(password);
+     $("#confirmPassVal").val(confirmPassword);
+     modalBox.style.visibility = "visible"
+     table.style.visibility = "hidden" // hide the table
+     
+     $("#update").click(function(){
+    validate(id,firstName, lastName, gender, phoneNo, email, state, lga, username, password,confirmPassword);
+    
+    })
+   
+  }
+
+
 
 });

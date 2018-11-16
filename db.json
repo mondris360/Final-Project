@@ -58,16 +58,16 @@
   ],
   "checkin": [
     {
-      "Patient PhoneNo": "090541627342",
-      "Doctor PhoneNo": "11111111111111111",
-      "Health Challenge": "nothing nothing",
+      "Patient PhoneNo": "299910010202020",
+      "Health Challenge": "Cough Cough",
       "Date": "4[Thu]/Nov/2018",
       "Status": "Waiting",
       "id": 3
     },
     {
       "Patient PhoneNo": "299910010202020",
- "Doctor PhoneNo": "11111111111111111",     "Health Challenge": "Cough Cough",
+      "Doctor PhoneNo": "11111111111111111",
+      "Health Challenge": "Cough Cough",
       "Date": "4[Thu]/Nov/2018",
       "Status": "Waiting",
       "id": 5
