@@ -58,22 +58,6 @@
   ],
   "checkin": [
     {
-      "Patient PhoneNo": "08106516740",
-      "Doctor PhoneNo": "0812234234553",
-      "Health Challenge": "HeadAche headache",
-      "Date": "3[Wed]/Nov/2018",
-      "Status": "Waiting",
-      "id": 1
-    },
-    {
-      "Patient PhoneNo": "07065438021",
-      "Doctor PhoneNo": "0812234234553",
-      "Health Challenge": "Stomach Stomach",
-      "Date": "3[Wed]/Nov/2018",
-      "Status": "Waiting",
-      "id": 2
-    },
-    {
       "Patient PhoneNo": "090541627342",
       "Doctor PhoneNo": "11111111111111111",
       "Health Challenge": "nothing nothing",
@@ -83,27 +67,10 @@
     },
     {
       "Patient PhoneNo": "299910010202020",
-      "Doctor PhoneNo": "0909734344334",
-      "Health Challenge": "Cough Cough",
-      "Date": "4[Thu]/Nov/2018",
-      "Status": "Waiting",
-      "id": 4
-    },
-    {
-      "Patient PhoneNo": "299910010202020",
-      "Doctor PhoneNo": "0909734344334",
-      "Health Challenge": "Cough Cough",
+ "Doctor PhoneNo": "11111111111111111",     "Health Challenge": "Cough Cough",
       "Date": "4[Thu]/Nov/2018",
       "Status": "Waiting",
       "id": 5
-    },
-    {
-      "Patient PhoneNo": "0982343345322",
-      "Doctor PhoneNo": "79012384343887",
-      "Health Challenge": "Cold Cold Cold Cold",
-      "Date": "4[Thu]/Nov/2018",
-      "Status": "Waiting",
-      "id": 6
     }
   ],
   "admin": [

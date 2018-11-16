@@ -19,9 +19,9 @@
               <table>
 
                     <tr>
-                        <td>SN</td><th>Patient Name</th> 
+                        <th>UserId</th><th>Patient Name</th> 
                         <th>Phone No</th><th>Doctor Assigned</th>
-                         <th>Date</th> <th>Health Challenge</th><th>Status</th>
+                         <th>Date</th> <th>Health Challenge</th><th>Status</th><th>Action</th>>
                     </tr>
               </table>
               
@@ -35,12 +35,39 @@
                             <option>Select Doctor</option>
                         </select><br>
                     <button id ="submit" type ="button"> Check In</button>&nbsp&nbsp <strong id ="output"></strong>
-                    <button id ="viewCheckin" type ="button">View All Checkin</button>&nbsp&nbsp <strong id ="output"></strong>
+                    <button id ="viewCheckin" type ="button">View All Patients</button>&nbsp&nbsp <strong id ="output"></strong>
                     <br>
                     <strong><center>List of all checked in Patients</center></strong>
 
              </div>
        </div>
+
+       <div id ="modalBox">
+             <center>EDIT PATIENT DETAILS</center>
+             <strong> Personal Details </strong><br>
+             <form name ="myform">
+              <section class = "personalDetails">
+              <em class ="fieldname">User Id</em><input  id="patid" type ="text"><br>
+              <em class ="fieldname">First Name</em><input id ="patFirstName" type ="text"><br>
+              <em class ="fieldname">Last Name</em><input id ="patLastName" type ="text"><br>
+              <em class ="fieldname">Phone No</em><input id ="patPhoneNo" type ="text"><br>
+              <em class ="fieldname">Doctor Assigned</em><select id ="ModalBoxDoctorName">
+                  <option>Select Doctor</option>
+              </select> <br>
+              <em class ="fieldname">Health Challenge</em>
+              <textarea id ="heathChal"></textarea>
+              <em class ="fieldname">Date</em><input id ="date" type ="text">
+              <select id ="statusSelectBox">
+                  <option>Status</option>
+                  <option>Treated</option>
+                  <option>Referred</option>
+                  <option>Resheduled</option>
+              </select> <br>
+            <button id ="update" type ="button">Update</button>
+            </section>
+          </form>
+        </div>
+
        <script
        src="https://code.jquery.com/jquery-3.3.1.min.js"
        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

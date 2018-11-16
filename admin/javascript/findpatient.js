@@ -3,18 +3,16 @@ $(document).ready(function() {
  
   $("#searchButton").click(function() {
     var patPhoneNo = $("#searchbox").val();
-    console.log(patPhoneNo);
-    // validate(patPhoneNo); // validate data
+    validate(patPhoneNo); // validate data
   });
  
-  function validate(PatPhoneNo) {
-    if (patPhoneNo === "" && patPhoneNo.length >=11) {
+  function validate(patPhoneNo) {
+    if (patPhoneNo === "") {
       alert("Please Enter Phone No");
       searchbox.focus();
       return false;
     }
     else {
-      // console.log(patPhoneNo)
       callCheckinTable(patPhoneNo);
     }
   }
@@ -35,11 +33,10 @@ $(document).ready(function() {
   }
 
   function callCheckinTable(patPhoneNo){
-    console.log(patPhoneNo)
     $.ajax({
       url: "http://localhost:3000/checkin",
       type: "GET",
-      data: patPhoneNo,
+      data: {"Patient PhoneNo":patPhoneNo},
       success: function(data) {
         if(Object.keys(data).length = 0){  // check if any match was returned
            alert("Patient Record Not Found");
@@ -47,83 +44,71 @@ $(document).ready(function() {
         }
         else { 
           $(data).each(function(index, value) {
-            const data = {};  // an object to accummulate all the  required values
-            data.patPhoneNo = value["Patient PhoneNo"];
-            data.healthChallenge = value["Health Challenge"];
-            data.patPhoneNo = value["Patient PhoneNo"];
-            data.date = value["Date"];
-            data.docPhoneNo = value["Doctor PhoneNo"];
-            data.status = value["Status"];
-            console.log(data);
-            // callPatientsTable(data); // ajax call to Patients Table
+            const dataBag = {};  // an object to accummulate all the  required values
+            dataBag.patPhoneNo = value["Patient PhoneNo"];
+            dataBag.healthChallenge = value["Health Challenge"];
+            dataBag.patPhoneNo = value["Patient PhoneNo"];
+            dataBag.date = value["Date"];
+            dataBag.docPhoneNo = value["Doctor PhoneNo"];
+            dataBag.status = value["Status"];
+                        
+            callPatientsTable(dataBag); // ajax call to Patients Table using the partial accummulated data
           });
         }
       }
     });
   }
  
-  function callPatientsTable(checkinData) {
-    var patPhoneNo = checkinData.patPhoneNo; 
+  function callPatientsTable(dataBag) {  
+    var patPhoneNo = dataBag.patPhoneNo; 
     $.ajax({
       url: "http://localhost:3000/patients",
       type: "GET",
       data: patPhoneNo,
       dataType: "json",
       success: function(data) {
-        // iterate over the data using jquery .each method
+        // iterate over the ajax response 
         $(data).each(function(index, value) {
             if (patPhoneNo == value["Phone No"]) {
-            checkinData.patName =
+            dataBag.patName =
               value["First Name"] + " " + value["Last Name"];
             
-            callDoctorTable(checkinData);
+            callDoctorTable(dataBag); // 
           }
         });
       }
     });
   }
  
-  function callDoctorTable(checkinData) {
-    var docPhoneNo = checkinData.docPhoneNo; // grab Doctor's phone from local storage
+  function callDoctorTable(dataBag) {
+    var docPhoneNo = dataBag.docPhoneNo; // grab Doctor's phone from   the object that is accumulate our values
     $.ajax({
       url: "http://localhost:3000/doctors",
       type: "GET",
       data: docPhoneNo,
       dataType: "json",
-      // contentType: "application/json"
       success: function(data) {
-        // iterate over the data using jquery .each method
+      // iterate  the ajax response using  jquery method
         $(data).each(function(index, value) {
-          // use each sub object to form a complete row of table data
-          // store the following values in the local storage
           if (value["Phone No"] == docPhoneNo) {
             var docName = value["First Name"] + " " + value["Last Name"];
-            checkinData.docName = docName; //store patient's fullname in local storage
-            appendRow(checkinData); // append data to the table
+            dataBag.docName = docName; // add Doctor's name to our databag
+            appendRow(dataBag); 
           }
         });
       }
     });
   }
  
-  function appendRow(checkinData) {
+  function appendRow(dataBag) {
     //  extract the  obj properties and assign them to variables using distructing operator
-    var {
-      patName,
-      patPhoneNo,
-      docName,
-      date,
-      healthChallenge,
-      status
-    } = checkinData;
-    console.log(
-      patName,
-      patPhoneNo,
-      docName,
-      date,
-      healthChallenge,
-      status
-    );
+    var patName = dataBag.patName;
+    var patPhoneNo =  dataBag.patPhoneNo;
+    var docName =  dataBag.docName;
+    var date = dataBag.date;
+    var healthChallenge = dataBag.healthChallenge;
+    var status = dataBag.status;
+  
     var $row = $(`
         <tr>
         <td>${patName}</td>
@@ -134,8 +119,8 @@ $(document).ready(function() {
         <td>${status}</td>
                                                            
         </tr>`);
-    $("table").append($row);
- 
+    $("table").append($row); // append our complete collected data to the table
+
     return
   };
 })

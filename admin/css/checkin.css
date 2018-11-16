@@ -17,6 +17,7 @@ body{
       "d . . . . . . ."
       ". . p p p p p ."
       ". . p p p p p ."
+      ". . . . . . . ."
       
 
 }
@@ -58,3 +59,17 @@ table td{
   border: 2px solid #8C6B48;
 }
 
+.delete{
+  cursor: pointer;
+}
+.edit{
+  cursor:pointer;
+}
+
+#modalBox{
+  background-color: white;
+  grid-area:;
+  display:block;
+  visibility: visible;
+  z-index: 3;
+}

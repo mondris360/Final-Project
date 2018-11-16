@@ -35,7 +35,7 @@ $(document).ready(function() {
       storeData(patPhoneNo, docPhoneNo, docName, healthComp); // save the data to the database
     }
   }
-  function CreateDataObj(patPhoneNo, docPhoneNo, healthComp) {
+  function CreateDataObj(patPhoneNo, docPhoneNo, healthComp){
     this["Patient PhoneNo"] = patPhoneNo;
     this["Doctor PhoneNo"] = docPhoneNo;
     this["Health Challenge"] = healthComp;
@@ -44,7 +44,7 @@ $(document).ready(function() {
   }
   //Save data to DB
  
-  function storeData(patPhoneNo, docPhoneNo, docName, healthComp) {
+  function storeData(patPhoneNo, docPhoneNo, docName, healthComp){
     var checkinDetails = new CreateDataObj(patPhoneNo, docPhoneNo, healthComp);
     $.ajax({
       url: "http://localhost:3000/checkin",
@@ -95,7 +95,7 @@ $(document).ready(function() {
           var option = document.createElement("option");
           var docName = value["First Name"] + " " + value["Last Name"];
           var value = value["Phone No"];
-          option.text = docName; // change the option text to the doctor name
+          option.text = docName; // change the option text to doctor's name
           option.value = value; // change the option html value to the doctor's username
           selectBox.add(option);
         });
@@ -105,20 +105,17 @@ $(document).ready(function() {
  
   // display all checked in patients
  
-  $("#viewCheckin").click(function() {
+  $("#viewCheckin").click(function() { // ajax call to the checkin table
     $.ajax({
       url: "http://localhost:3000/checkin",
       type: "GET",
       success: function(data) {
         // iterate over the data using jquery .each method
         $(data).each(function(index, value) {
-          // use each sub object to form a
-          //complete row of table data // store the following values in the local storage
-          const data = {};
-          data.sn = index;
+          const data = {};    // container to hold all values
+          data.id = value.id;
           data.patPhoneNo = value["Patient PhoneNo"];
           data.healthChallenge = value["Health Challenge"];
-          data.patPhoneNo = value["Patient PhoneNo"];
           data.date = value["Date"];
           data.docPhoneNo = value["Doctor PhoneNo"];
           data.status = value["Status"];
@@ -129,7 +126,7 @@ $(document).ready(function() {
   });
  
   function callPatientsTable(checkinData) {
-    var patPhoneNo = checkinData.patPhoneNo; 
+    var patPhoneNo = checkinData.patPhoneNo;
     $.ajax({
       url: "http://localhost:3000/patients",
       type: "GET",
@@ -139,9 +136,8 @@ $(document).ready(function() {
         // iterate over the data using jquery .each method
         $(data).each(function(index, value) {
             if (patPhoneNo == value["Phone No"]) {
-            checkinData.patName =
-              value["First Name"] + " " + value["Last Name"];
-            
+              checkinData.patName = value["First Name"] + " " + value["Last Name"];
+              console.log(checkinData);
             callDoctorTable(checkinData);
           }
         });
@@ -150,22 +146,21 @@ $(document).ready(function() {
   }
  
   function callDoctorTable(checkinData) {
-    var docPhoneNo = checkinData.docPhoneNo; // grab Doctor's phone from local storage
-    $.ajax({
-      url: "http://localhost:3000/doctors",
+    var docPhoneNo = checkinData.docPhoneNo; 
+      
+      $.ajax({
+      url: `http://localhost:3000/doctors`,
       type: "GET",
       data: docPhoneNo,
       dataType: "json",
       // contentType: "application/json"
       success: function(data) {
-        // iterate over the data using jquery .each method
+               //loop through the  object
         $(data).each(function(index, value) {
-          // use each sub object to form a complete row of table data
-          // store the following values in the local storage
           if (value["Phone No"] == docPhoneNo) {
             var docName = value["First Name"] + " " + value["Last Name"];
-            checkinData.docName = docName; //store patient's fullname in local storage
-            appendRow(checkinData); // append data to the table
+            checkinData.docName = docName; //add doctor's name to the obj container
+             appendRow(checkinData); // append data to the table
           }
         });
       }
@@ -175,7 +170,7 @@ $(document).ready(function() {
   function appendRow(checkinData) {
     //grab the values from local storage and assign them to variables
     var {
-      sn,
+      id,
       patName,
       patPhoneNo,
       docName,
@@ -183,28 +178,110 @@ $(document).ready(function() {
       healthChallenge,
       status
     } = checkinData;
-    // console.log(
-    //   sn,
-    //   patName,
-    //   patPhoneNo,
-    //   docName,
-    //   date,
-    //   healthChallenge,
-    //   status
-    // );
+
     var $row = $(`
         <tr>
-        <td>${sn}</td>
+        <td>${id}</td>
         <td>${patName}</td>
         <td>${patPhoneNo}</td>
         <td>${docName}</td>
         <td>${date}</td>
         <td>${healthChallenge}</td>
         <td>${status}</td>
-                                                           
+        <td><span class="edit" value="${checkinData.id}">&#x270e;</span></td>
+        <td><span class="delete" value="${checkinData.id}">&#x274c;</span></td>                               
         </tr>`);
-    $("table").append($row);
- 
+
+     $("table").append($row);
+              $row.find('.edit').click(function() { //function to  extract patient's details from  the selected row
+              var id  = checkinData.id
+              var patFullName = checkinData.patName;
+              var patFirstName = patFullName.split(" ")[1]
+              var patLastName = patFullName.split(" ")[0];
+              var docFullName = checkinData.docName;
+              var docFirstName = docFullName.split(" ")[1]
+              var docLastName = docFullName.split(" ")[0];
+              var patPhoneNo = checkinData.patPhoneNo;
+              var patDate = checkinData.date;
+              var patHealthChallenge = checkinData.healthChallenge;
+              var patStatus = checkinData.status;
+             
+              showModalBox(id, patFullName, patFirstName, patLastName, docFullName, docFirstName, docLastName, patPhoneNo,
+                  patHealthChallenge, patStatus, patDate) // the function that will update it
+             
+              })
+
+              $row.find('.delete').click(function() { //function to  extract patient's phone no from selected row
+              var patId  = checkinData.id;
+               deleteRecord(patId);
+              })
     return;
   }
+
+  // function to delete patient's record
+  function deleteRecord(patId){
+      $.ajax({
+      url:`http://localhost:3000/checkin/${patId}`,
+      type:"DELETE",
+      ContentType: "application/json",
+      success: function(data){
+        alert("Record Deleted Sucessfully")
+        console.log(phoneNo)
+        // refresh the page
+        // window.location.href= "./viewpatients.html"
+      }
+
+      })
+    }
+  
+
+   // function to display edit button  modal box
+  function showModalBox(id, patFullName, patFirstName, patLastName, docFullName, 
+                        docFirstName, docLastName, patPhoneNo,
+                        patHealthChallenge, patStatus, patDate){
+    // loadDoctors() // load doctors name from db
+     var modalBox = document.getElementById("modalBox");
+     var table = document.getElementById("table");
+     $("#patid").val(id);
+     $("#patFirstName").val(patFirstName);
+     $("#patLastName").val(patLastName);
+     $("#patPhoneNo").val(patPhoneNo);
+     $("#docName").val(docFullName);
+     $("#heathChal").val(patHealthChallenge);
+     $("#date").val(patDate);
+     $("#Status").val(patStatus);
+     var docNameSelectBox = document.getElementById("ModalBoxDoctorName"); //add the doctor's name to the selected menu
+     var option = document.createElement("option");
+     option.text = docFullName;
+     option.value = docFullName;
+     docNameSelectBox.add(option);
+     var statusSelectBox = document.getElementById("statusSelectBox"); //add the doctor's name to the selected menu
+     var option = document.createElement("option");
+     option.text = patStatus;
+     option.value = patStatus;
+     statusSelectBox.add(option);
+     console.log(id)
+
+     $("#update").click(function() {
+        console.log()
+        $.ajax({   
+        url: `http://localhost:3000/checkin/${id}`, // update checkin Table
+        type: "PUT",
+        data: {
+          "Patient PhoneNo":patPhoneNo,
+          "Health Challenge":patHealthChallenge,
+          "Date":patDate,
+          "Status":patStatus
+        },
+        success: function(data) {
+            alert("Record Updated Successfully")
+          
+            alert("mondris")
+        
+        }
+      });
+  });
+  }
+
+
 });

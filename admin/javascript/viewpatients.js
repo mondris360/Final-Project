@@ -64,7 +64,7 @@ $(document).ready(function(){
 
    function deleteRecord(id){
     		$.ajax({
-			url:`http://localhost:3000/users?State=${phoneNo}`,
+			url:`http://localhost:3000/users?State=${patId}`,
 			type:"DELETE",
 			ContentType: "application/json",
 			success: function(data){
@@ -79,7 +79,7 @@ $(document).ready(function(){
   
    // display the modal box
 
-   function showModalBox(id, firstName,lastName,gender,phoneNo,email,lga,state,username, password, confirmPassword){
+  function showModalBox(id, firstName,lastName,gender,phoneNo,email,lga,state,username, password, confirmPassword){
     console.log(firstName,lastName,gender,phoneNo,email,lga,state,username, password, confirmPassword)
     console.log("username:",username);
     var modalBox = document.getElementById("modalBox");
@@ -103,7 +103,7 @@ $(document).ready(function(){
 		
 		})
    
-   }
+  }
 // validate the data
 function validate(id){
 	//grab values from the update form i.e incase there are some changes
