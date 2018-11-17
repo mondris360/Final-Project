@@ -7,10 +7,10 @@ $(document).ready(function() {
     var docName = $("#doctorName").val();
     var healthComp = $("#complain").val();
  
-    validate(patPhoneNo, docPhoneNo, docName, healthComp); // validate data
+    validateChekinData(patPhoneNo, docPhoneNo, docName, healthComp); // validate data
   });
  
-  function validate(patPhoneNo, docPhoneNo, docName, healthComp) {
+  function validateChekinData(patPhoneNo, docPhoneNo, docName, healthComp) {
     if (patPhoneNo === "") {
       alert("Please Enter A Valid Phone No");
       phoneNo.focus();

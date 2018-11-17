@@ -11,18 +11,7 @@
       "L.G.A": "etsako west",
       "id": 1
     },
-    {
-      "First Name": "Adams",
-      "Last Name": "Mark",
-      "Gender": "Female",
-      "Phone No": "07065438021",
-      "E-mail": "justmondris@gmail.com",
-      "Address": "no 4a ice road auchi",
-      "State": "Delta",
-      "L.G.A": "Etsako West",
-      "id": 2
-    },
-    {
+  {
       "First Name": "mark",
       "Last Name": "adams",
       "Gender": "Female",
@@ -65,9 +54,63 @@
       "State": "Edo",
       "L.G.A": "Etsako West",
       "id": 6
+    },
+    {
+      "First Name": "Okundolor",
+      "Last Name": "Mondris",
+      "Gender": "Female",
+      "Phone No": "08106516740",
+      "E-mail": "justmondris@gmail.com",
+      "Address": "no 4a I.C.E Road, Auchi",
+      "State": "Edo",
+      "L.G.A": "Etsako West",
+      "id": 7
+    },
+    {
+      "First Name": "Okundolor",
+      "Last Name": "Mondris",
+      "Gender": "Female",
+      "Phone No": "08106516740",
+      "E-mail": "justmondris@gmail.com",
+      "Address": "no 4a I.C.E Road, Auchi",
+      "State": "Edo",
+      "L.G.A": "Etsako West",
+      "id": 8
+    },
+  {
+      "First Name": "Imonitie",
+      "Last Name": "Mark",
+      "Gender": "Male",
+      "Phone No": "07065438021",
+      "E-mail": "justmondris@gmail.com",
+      "Address": "no 4a ice road",
+      "State": "Edo",
+      "L.G.A": "none",
+      "id": 10
     }
   ],
-  "checkin": [],
+  "checkin": [
+    {
+      "Patient PhoneNo": "111111111111",
+      "id": 1
+    },
+    {
+      "Patient PhoneNo": "07065438021",
+      "Doctor PhoneNo": "0909734344334",
+      "Health Challenge": "malaria malaria",
+      "Date": "6[Sat]/Nov/2018",
+      "Status": "Waiting",
+      "id": 2
+    },
+    {
+      "Patient PhoneNo": "07065438021",
+      "Doctor PhoneNo": "79012384343887",
+      "Health Challenge": "cough cough",
+      "Date": "6[Sat]/Nov/2018",
+      "Status": "Waiting",
+      "id": 3
+    }
+  ],
   "admin": [
     {
       "id": 1,
