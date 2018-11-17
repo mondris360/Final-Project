@@ -317,23 +317,23 @@ $(document).ready(function() {
 };
 
 
-  function updateRecord(userId, patientFName, patientLName, patientPhoneNo, doctorPhoneNo, patHealthCha, checkinDate,checkinStatus){
-      // $.ajax({   
-      //   url: `http://localhost:3000/checkin/${userId}`, // update checkin Table
-      //   type: "PUT",
-      //   dataType: "json",
-      //   data: {
-      //     "Patient PhoneNo": patientPhoneNo,
-      //     "Doctor PhoneNo":doctorPhoneNo,
-      //     "Health Challenge": patHealthCha,
-      //     "Date": checkinDate,
-      //     "Status": checkinStatus,
-      //   },
-      //   success: function(data) {
-      //     alert("Record Updated Successfully");
+  function updateRecord(userId, patFirstName, patientLName, patientPhoneNo, doctorPhoneNo, patHealthCha, checkinDate,checkinStatus){
+      $.ajax({   
+        url: `http://localhost:3000/checkin/${userId}`, // update checkin Table
+        type: "PUT",
+        dataType: "json",
+        data: {
+          "Patient PhoneNo": patientPhoneNo,
+          "Doctor PhoneNo":doctorPhoneNo,
+          "Health Challenge": patHealthCha,
+          "Date": checkinDate,
+          "Status": checkinStatus,
+        },
+        success: function(data) {
+          alert("Record Updated Successfully");
   
-      //     }
-      // });
+          }
+      });
       $.ajax({   
         url: `http://localhost:3000/patients/`, // call to patient table to get the correct user's id
         type: "GET",
@@ -348,6 +348,21 @@ $(document).ready(function() {
         success: function(data) {
           var patDetails = data[0];
           var patIdInPtable = patDetails.id;  
+
+        $.ajax({   
+        url: `http://localhost:3000/patients/${patIdInPtable}`, // update checkin Table
+        type: "PATCH",
+        dataType: "json",
+        data: {
+          "First Name": patFirstName,
+          "Last Name":patientLName,
+
+        },
+        success: function(data) {
+          console.log(data);
+  
+          }
+      });
           }
       });
   }
