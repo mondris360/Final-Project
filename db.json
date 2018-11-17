@@ -11,7 +11,7 @@
       "L.G.A": "etsako west",
       "id": 1
     },
-  {
+    {
       "First Name": "mark",
       "Last Name": "adams",
       "Gender": "Female",
@@ -43,41 +43,7 @@
       "State": "Lagos",
       "L.G.A": "etsako west",
       "id": 5
-    },
-    {
-      "First Name": "Okundolor",
-      "Last Name": "Mondris",
-      "Gender": "Female",
-      "Phone No": "08106516740",
-      "E-mail": "justmondris@gmail.com",
-      "Address": "no 4a I.C.E Road, Auchi",
-      "State": "Edo",
-      "L.G.A": "Etsako West",
-      "id": 6
-    },
-    {
-      "First Name": "Okundolor",
-      "Last Name": "Mondris",
-      "Gender": "Female",
-      "Phone No": "08106516740",
-      "E-mail": "justmondris@gmail.com",
-      "Address": "no 4a I.C.E Road, Auchi",
-      "State": "Edo",
-      "L.G.A": "Etsako West",
-      "id": 7
-    },
-    {
-      "First Name": "Okundolor",
-      "Last Name": "Mondris",
-      "Gender": "Female",
-      "Phone No": "08106516740",
-      "E-mail": "justmondris@gmail.com",
-      "Address": "no 4a I.C.E Road, Auchi",
-      "State": "Edo",
-      "L.G.A": "Etsako West",
-      "id": 8
-    },
-  {
+    },{
       "First Name": "Imonitie",
       "Last Name": "Mark",
       "Gender": "Male",
@@ -91,24 +57,28 @@
   ],
   "checkin": [
     {
-      "Patient PhoneNo": "111111111111",
-      "id": 1
-    },
-    {
       "Patient PhoneNo": "07065438021",
-      "Doctor PhoneNo": "0909734344334",
-      "Health Challenge": "malaria malaria",
-      "Date": "6[Sat]/Nov/2018",
-      "Status": "Waiting",
-      "id": 2
-    },
-    {
-      "Patient PhoneNo": "07065438021",
+      "Health Challenge": "none none none",
       "Doctor PhoneNo": "79012384343887",
-      "Health Challenge": "cough cough",
       "Date": "6[Sat]/Nov/2018",
-      "Status": "Waiting",
+      "Status": "Treated",
       "id": 3
+    },
+    {
+      "Patient PhoneNo": "111111111111111",
+      "Doctor PhoneNo": "0909734344334",
+      "Health Challenge": "fever fever fever",
+      "Date": "6[Sat]/Nov/2018",
+      "Status": "Referred",
+      "id": 4
+    },
+    {
+      "Patient PhoneNo": "0982343345322",
+      "Doctor PhoneNo": "0812234234553",
+      "Health Challenge": "Fever Fever",
+      "Date": "6[Sat]/Nov/2018",
+      "Status": "Referred",
+      "id": 5
     }
   ],
   "admin": [

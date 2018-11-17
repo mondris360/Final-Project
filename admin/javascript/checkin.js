@@ -160,8 +160,8 @@ $(document).ready(function() {
           if (value["Phone No"] == docPhoneNo) {
             var docName = value["First Name"] + " " + value["Last Name"];
             checkinData.docName = docName; //add doctor's name to the obj container
-             appendRow(checkinData); // append data to the table
 
+             appendRow(checkinData); // append data to the table
           }
         });
       }
@@ -170,8 +170,6 @@ $(document).ready(function() {
   }
  
   function appendRow(checkinData) {
-    //grab the values from local storage and assign them to variable
-
     var {
       id,
       patName,
@@ -208,8 +206,9 @@ $(document).ready(function() {
               var patDate = checkinData.date;
               var patHealthChallenge = checkinData.healthChallenge;
               var patStatus = checkinData.status;
+              var docPhoneNo = checkinData.docPhoneNo;
              
-              showModalBox(id, patFullName, patFirstName, patLastName, docFullName, docFirstName, docLastName, patPhoneNo,
+              showModalBox(id, patFullName, patFirstName, patLastName, docFullName, docFirstName, docLastName,docPhoneNo, patPhoneNo,
               patHealthChallenge, patStatus, patDate) 
              
               })
@@ -239,7 +238,7 @@ $(document).ready(function() {
         
 
    // function to display edit button  modal box
-  function showModalBox(id, patFullName, patFirstName, patLastName, docFullName, docFirstName, docLastName, patPhoneNo,
+  function showModalBox(id, patFullName, patFirstName, patLastName, docFullName, docFirstName, docLastName,docPhoneNo, patPhoneNo,
               patHealthChallenge, patStatus, patDate){
       // loadDoctors() // load doctors name from db
      var modalBox = document.getElementById("modalBox");
@@ -255,7 +254,7 @@ $(document).ready(function() {
      var docNameSelectBox = document.getElementById("docName"); //add the doctor's name to the selected menu
      var option = document.createElement("option");
      option.text = docFullName;
-     option.value = docFullName;
+     option.value = docPhoneNo;
      docNameSelectBox.add(option);
      var statusSelectBox = document.getElementById("status"); //add the doctor's name to select option
      var option = document.createElement("option");
@@ -273,10 +272,11 @@ $(document).ready(function() {
   var patientFName = $("#patFirstName").val();
   var patientLName = $("#patLastName").val();
   var patientPhoneNo = $("#patPhoneNo").val();
-  var doctorName = $("#docName").val();
+  var doctorPhoneNo = $("#docName").val();  
   var patHealthCha = $("#heathChal").val();
   var checkinDate = $("#date").val();
   var checkinStatus = $("#status").val();
+  
 
   if(patientFName === ""){
     alert("Invalid Name")
@@ -313,25 +313,41 @@ $(document).ready(function() {
     Status.focus();
     return false
   };
-  updateRecord(userId, patientFName, patientLName, patientPhoneNo, doctorName, patHealthCha, checkinDate,checkinStatus);
+  updateRecord(userId, patientFName, patientLName, patientPhoneNo, doctorPhoneNo, patHealthCha, checkinDate,checkinStatus);
 };
 
 
-  function updateRecord(userId, patientFName, patientLName, patientPhoneNo, doctorName, patHealthCha, checkinDate,checkinStatus){
-    console.log()
-     $.ajax({   
-        url: `http://localhost:3000/checkin/${userId}`, // update checkin Table
-        type: "PUT",
+  function updateRecord(userId, patientFName, patientLName, patientPhoneNo, doctorPhoneNo, patHealthCha, checkinDate,checkinStatus){
+      // $.ajax({   
+      //   url: `http://localhost:3000/checkin/${userId}`, // update checkin Table
+      //   type: "PUT",
+      //   dataType: "json",
+      //   data: {
+      //     "Patient PhoneNo": patientPhoneNo,
+      //     "Doctor PhoneNo":doctorPhoneNo,
+      //     "Health Challenge": patHealthCha,
+      //     "Date": checkinDate,
+      //     "Status": checkinStatus,
+      //   },
+      //   success: function(data) {
+      //     alert("Record Updated Successfully");
+  
+      //     }
+      // });
+      $.ajax({   
+        url: `http://localhost:3000/patients/`, // call to patient table to get the correct user's id
+        type: "GET",
         dataType: "json",
         data: {
-          "Patient PhoneNo":patientPhoneNo
-          // "Health Challenge":patHealthCha,
-          // "Date":checkinDate,
-          // "Status":checkinStatus
+          "Phone No": patientPhoneNo,
+          // "Doctor PhoneNo":doctorPhoneNo,
+          // "Health Challenge": patHealthCha,
+          // "Date": checkinDate,
+          // "Status": checkinStatus,
         },
         success: function(data) {
-            alert("Record Updated Successfully")
-  
+          var patDetails = data[0];
+          var patIdInPtable = patDetails.id;  
           }
       });
   }
