@@ -161,15 +161,17 @@ $(document).ready(function() {
             var docName = value["First Name"] + " " + value["Last Name"];
             checkinData.docName = docName; //add doctor's name to the obj container
              appendRow(checkinData); // append data to the table
+
           }
         });
       }
     });
-                console.log(checkinData, " here");
+
   }
  
   function appendRow(checkinData) {
-    //grab the values from local storage and assign them to variables
+    //grab the values from local storage and assign them to variable
+
     var {
       id,
       patName,
@@ -194,7 +196,7 @@ $(document).ready(function() {
         </tr>`);
 
      $("table").append($row);
-              $row.find('.edit').click(function() { //function to  extract patient's details from  the selected row
+              $row.find('.edit').click(function() { 
               var id  = checkinData.id
               var patFullName = checkinData.patName;
               var patFirstName = patFullName.split(" ")[1]
@@ -207,11 +209,11 @@ $(document).ready(function() {
               var patHealthChallenge = checkinData.healthChallenge;
               var patStatus = checkinData.status;
              
-              // showModalBox(id, patFullName, patFirstName, patLastName, docFullName, docFirstName, docLastName, patPhoneNo,
-              //     patHealthChallenge, patStatus, patDate) // the function that will update it
+              showModalBox(id, patFullName, patFirstName, patLastName, docFullName, docFirstName, docLastName, patPhoneNo,
+              patHealthChallenge, patStatus, patDate) 
              
               })
-
+              
               $row.find('.delete').click(function() { //function to  extract patient's phone no from selected row
               var patId  = checkinData.id;
                deleteRecord(patId);
@@ -237,10 +239,9 @@ $(document).ready(function() {
         
 
    // function to display edit button  modal box
-  function showModalBox(id, patFirstName, patLastName, patPhoneNo, docFullName,docFirstName,
-                         docLastName, patHealthChallenge, patDate, patStatus){
-    console.log(patHealthChallenge)
-    // loadDoctors() // load doctors name from db
+  function showModalBox(id, patFullName, patFirstName, patLastName, docFullName, docFirstName, docLastName, patPhoneNo,
+              patHealthChallenge, patStatus, patDate){
+      // loadDoctors() // load doctors name from db
      var modalBox = document.getElementById("modalBox");
      var table = document.getElementById("table");
      $("#patid").val(id);
@@ -251,12 +252,12 @@ $(document).ready(function() {
      $("#heathChal").val(patHealthChallenge);
      $("#date").val(patDate);
      $("#Status").val(patStatus);
-     var docNameSelectBox = document.getElementById("ModalBoxDoctorName"); //add the doctor's name to the selected menu
+     var docNameSelectBox = document.getElementById("docName"); //add the doctor's name to the selected menu
      var option = document.createElement("option");
      option.text = docFullName;
      option.value = docFullName;
      docNameSelectBox.add(option);
-     var statusSelectBox = document.getElementById("statusSelectBox"); //add the doctor's name to the selected menu
+     var statusSelectBox = document.getElementById("status"); //add the doctor's name to select option
      var option = document.createElement("option");
      option.text = patStatus;
      option.value = patStatus;
@@ -267,7 +268,7 @@ $(document).ready(function() {
       });
   }
 
- function validate(id){ // extract data from the modal box and validate them
+ function validate(){ // extract data from the modal box and validate them
   var userId = $("#patid").val();
   var patientFName = $("#patFirstName").val();
   var patientLName = $("#patLastName").val();
@@ -275,9 +276,8 @@ $(document).ready(function() {
   var doctorName = $("#docName").val();
   var patHealthCha = $("#heathChal").val();
   var checkinDate = $("#date").val();
-  var checkinStatus = $("#Status").val();
-  console.log(checkinDate)
- 
+  var checkinStatus = $("#status").val();
+
   if(patientFName === ""){
     alert("Invalid Name")
     patFirstName.focus();
@@ -313,20 +313,21 @@ $(document).ready(function() {
     Status.focus();
     return false
   };
-  // updateRecord(userId, patientFName, patientLName, patientPhoneNo, doctorName, patHealthCha, checkinDate,checkinStatus);
+  updateRecord(userId, patientFName, patientLName, patientPhoneNo, doctorName, patHealthCha, checkinDate,checkinStatus);
 };
 
 
-  function updateRecord(userId, patientFName, patientLName, 
-                      patientPhoneNo, DoctorName, PatHealthCha){
+  function updateRecord(userId, patientFName, patientLName, patientPhoneNo, doctorName, patHealthCha, checkinDate,checkinStatus){
+    console.log()
      $.ajax({   
-        url: `http://localhost:3000/checkin/3`, // update checkin Table
+        url: `http://localhost:3000/checkin/${userId}`, // update checkin Table
         type: "PUT",
+        dataType: "json",
         data: {
-          "Patient PhoneNo":patPhoneNo,
-          "Health Challenge":PatHealthCha,
-          "Date":checkinDate,
-          "Status":checkinStatus
+          "Patient PhoneNo":patientPhoneNo
+          // "Health Challenge":patHealthCha,
+          // "Date":checkinDate,
+          // "Status":checkinStatus
         },
         success: function(data) {
             alert("Record Updated Successfully")

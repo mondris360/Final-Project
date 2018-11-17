@@ -54,25 +54,20 @@
       "State": "Lagos",
       "L.G.A": "etsako west",
       "id": 5
-    }
-  ],
-  "checkin": [
-    {
-      "Patient PhoneNo": "299910010202020",
-      "Health Challenge": "Cough Cough",
-      "Date": "4[Thu]/Nov/2018",
-      "Status": "Waiting",
-      "id": 3
     },
     {
-      "Patient PhoneNo": "299910010202020",
-      "Doctor PhoneNo": "11111111111111111",
-      "Health Challenge": "Cough Cough",
-      "Date": "4[Thu]/Nov/2018",
-      "Status": "Waiting",
-      "id": 5
+      "First Name": "Okundolor",
+      "Last Name": "Mondris",
+      "Gender": "Female",
+      "Phone No": "08106516740",
+      "E-mail": "justmondris@gmail.com",
+      "Address": "no 4a I.C.E Road, Auchi",
+      "State": "Edo",
+      "L.G.A": "Etsako West",
+      "id": 6
     }
   ],
+  "checkin": [],
   "admin": [
     {
       "id": 1,
