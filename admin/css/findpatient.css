@@ -8,30 +8,48 @@ body{
 
 .container{
   display:grid;
-  grid-template-columns: repeat(8, minmax(50px, 1fr));
+  grid-template-columns: repeat(6, minmax(30px, 1fr));
   grid-auto-rows: 100px;
   grid-template-areas:
-      ". . . s s s . ." /* positioning the top right menu */
-      "d . p p p p p ."
-      "d . p p p p p ."
-      "d . p p p p p ."
-      ". . . . . . . ."
-      
-
+      ".  . . s s s" /* positioning the top right menu */
+      "d . p p p . "
+      "d . p p p . "
+      "d . p p p . "
+      "d . . . . . "
+      "d . . . . . "
 }
 
 
 .dashboard{
-  background-color: #FFFFFF;
-  grid-area: d;
-  border: 1px solid #8C6B48;
+background-color: #FFFFFF;
+border: 1px solid #8C6B48;
+grid-area: d;
+}
+
+center{
+  color:#8c6b48;
+  background-color:#FFFFFF;
+  font-size:20px;
+  font-family: "Times New Roman", Times, serif;
+  border: 2px solid #8C6B48;
+  padding:20px;
+}
+center:hover{
+  background: #19334d;
+  color:white;
+  font-family:"Times New Roman", Times, serif;;
 }
 
 a{
+color:red;
+text-decoration:none;
+}
+
+
+strong{
   color:#242F44;
   font-size:20px;
-  text-decoration:none;
-  margin: 20px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 input{
@@ -49,3 +67,10 @@ table{
   border: 1px solid #8C6B48;
 }
 
+table th{
+  color:#242F44;
+}
+p, span{
+ color:black;
+  font-size:18px;
+}

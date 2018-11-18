@@ -32,7 +32,7 @@ body{
 #myform {
 
   grid-area: a;
-   background-color: gray;
+  background-color: gray;
 }
 /* styling the sign up form */
 center{
@@ -43,11 +43,22 @@ center{
   border: 2px solid #8C6B48;
   padding:20px;
 }
+center:hover{
+  background: #19334d;
+  color:white;
+  font-family:"Times New Roman", Times, serif;;
+}
+a{
+  text-decoration: none;
+}
 
 input{
   width: 400px;
   margin-left:10px;
   height: 30px;
+}
+input:focus{
+  border:3px solid blue;
 }
 strong{
   color:#242F44;
@@ -68,6 +79,7 @@ select{
 }
 #submit{
   border:2px solid #8C6B48;
+  cursor: pointer;
   width:100px;
   padding:15px;
   margin-top:10px;
