@@ -17,22 +17,27 @@
                 <a href ="adddoctor.html"><center>Add Doctor</center></a>
               </div>
               
-              
+              <h4 id ="formTitle">Create A Profile For A New Patient</h4>
               <form id ="myform">
-                <p> Capture First Time Patient Details<p>
-              <section class = "personalDetails">
-              <span class ="fieldname">First Name:</span><input  id="Fname"type ="text" name ="Fname"> <br>
-              <span class ="fieldname">Last Name:</span><input id ="Lname" type ="text"><br>
-              <span class ="fieldname">Gender:</span><select id="sex" > 
+              <label for="Fname">First Name:</label>
+              <input  id="Fname"type ="text" placeholder="Your First Name.."> <br>
+              <label for ="Lname">Last Name:</label>
+              <input id ="Lname" type ="text" placeholder="Your Last Name.."><br>
+              <label for ="sex">Gender</label>
+              <select id="sex" > 
                   <option>Select Gender:</option>
                   <option>Male</option>
                   <option>Female</option>
               </select><br>
-              <span class ="fieldname">Phone No:</span><input  id ="phoneNo" type ="text"></input> <br>
-              <span class ="fieldname">E-mail:</span><input  id ="email"type ="text"></input> <br>
-              <span class ="fieldname">Address:</span><input  id ="address"type ="text"></input> <br>
-              <span class ="fieldname">L.G.A:</span><input id ="lga" type ="text"></input> <br>
-              <span class ="fieldname">State Of Origin:</span>
+              <label for ="phoneNo">Phone No:</label>
+              <input  id ="phoneNo" type ="text" placeholder="Your Phone Number.."><br>
+              <label for ="email">E-mail:</label>
+              <input  id ="email"type ="text" placeholder="Your Email Address.."><br>
+              <label for ="address">Address:</label>
+              <input  id ="address"type ="text" placeholder="Your Address.."><br>
+              <label for ="lga">L.G.A:</label>
+              <input id ="lga" type ="text" placeholder="Your Local Govt.."><br>
+              <label for ="state">State Of Origin:</label>
               <select id ="state">
                   <option>Select State</option>
                   <option>Edo</option>
@@ -42,7 +47,6 @@
                   <option>Kano</option>
                   <option>Abuja</option>
               </select> <br>
-              </section>
               <button id ="submit"type ="button">Submit</button>
           </form>
 
