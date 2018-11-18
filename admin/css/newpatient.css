@@ -8,7 +8,7 @@ body{
 
 .container{
   display:grid;
-  grid-template-columns: repeat(6, minmax(30px, 1fr));
+  grid-template-columns: repeat(6, minmax(2px, 1fr));
   grid-auto-rows: 100px;
   grid-template-areas:
       ". . t t . ."
@@ -31,26 +31,23 @@ body{
 }
 
 #myform {
-
   grid-area: a;
   background-color: white;
- 
-  
 }
 
 #formTitle{
 grid-area:t;
 align-self:end;
-color:#0044B3;
+color:white;
 font-size:20px;
 }
 /* styling the sign up form */
 center{
-  color:#8c6b48;
+  color:#2F2444;
   background-color:#FFFFFF;
   font-size:20px;
   font-family: "Times New Roman", Times, serif;
-  border: 2px solid #8C6B48;
+  border: 2px solid #244439;
   padding:20px;
 }
 center:hover{
@@ -70,10 +67,10 @@ input{
   border-radius:20px;
 }
 input:focus{
-  border:2px solid  #0044b3;
+  border:2px solid  #244439;
 }
 strong{
-  color:#242F44;
+  color:#244439;
   font-size:20px;
   font-family: "Times New Roman", Times, serif;
 }
@@ -91,7 +88,7 @@ select{
   height: 30px;
 }
 #submit{
-  background: #0044b3;
+  background: #244439;
   border:2px solid #8C6B48;
   cursor: pointer;
   width: 451px;
