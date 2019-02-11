@@ -1,0 +1,19 @@
+Project Name: Hospital Management System
+
+This web application will allow hospitals  to easily manage their patients by allowing them to perform the following:
+1 Add new patient record
+2:Checkin a patient and assign a doctor to the patient
+3:View all checked in patients
+4:Edit patient's record: // i got stucked doing this
+5:Add new doctor account
+
+
+TECHNOLOGIES USES
+1: HTML5
+2: CSS 3 AND CSS GRID
+3: JAVASCRIPT
+4: JSON MOCK API
+5: SOME JQUERY methods e.g the Ajax call, event listener
+
+Note: i have decided to pause this project and focus on learning a proper backend language(NODE JS), a database management system(MYSQL)
+and rebuild the entire project from scratch in a more standard and scalable way.
